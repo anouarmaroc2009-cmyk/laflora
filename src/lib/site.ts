@@ -9,7 +9,7 @@ export const SITE = {
   phoneHref: "tel:+212682725055",
   whatsappHref: "https://wa.me/212682725055",
   mapsUrl: "https://maps.app.goo.gl/thqqJJwLwgoBFQyq7",
-  instagramUrl: "https://www.instagram.com/lafloradelpatron",
+  instagramUrl: "https://www.instagram.com/laflora.delpatron",
   hours: "Mardi – Samedi · 9h00 – 19h00",
   description:
     "Fleuriste de luxe à Rabat. Décoration florale de mariage, bouquets sur mesure, sculptures et installations d'événements. Contact : 06 82 72 50 55.",
