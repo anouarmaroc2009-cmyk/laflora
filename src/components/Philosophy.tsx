@@ -91,7 +91,7 @@ export default function Philosophy() {
                 <div className="relative aspect-[3/4] overflow-hidden bg-blush">
                   <Image
                     src={PHILOSOPHY_IMAGE}
-                    alt="Roses roses fraîchement coupées préparées dans l'atelier de la fleuriste LaFloraDelPatron à Casablanca"
+                    alt="Roses roses fraîchement coupées préparées dans l'atelier de la fleuriste LaFloraDelPatron à Rabat"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"
@@ -102,7 +102,7 @@ export default function Philosophy() {
                     L&apos;atelier
                   </p>
                   <p className="mt-2 text-[10px] uppercase tracking-[0.25em] text-ink/50">
-                    Casablanca · sur rendez-vous
+                    Rabat · sur rendez-vous
                   </p>
                 </div>
               </div>

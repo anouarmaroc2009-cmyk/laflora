@@ -78,7 +78,7 @@ export default function IntroOverlay({ onDone }: { onDone: () => void }) {
         transition={{ delay: reduce ? 0 : 2.2, duration: 1, ease: EASE }}
         className="mt-3 text-[11px] uppercase tracking-[0.45em] text-cream/60"
       >
-        Atelier floral · Casablanca
+        Atelier floral · Rabat
       </motion.p>
     </motion.div>
   );

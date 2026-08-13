@@ -19,8 +19,8 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const title = "LaFloraDelPatron | Fleuriste de Luxe · Mariage Casablanca";
-const ogTitle = "LaFloraDelPatron — Fleuriste de Luxe à Casablanca";
+const title = "LaFloraDelPatron | Fleuriste de Luxe · Mariage Rabat";
+const ogTitle = "LaFloraDelPatron — Fleuriste de Luxe à Rabat";
 
 export function generateMetadata(): Metadata {
   return {
@@ -28,15 +28,15 @@ export function generateMetadata(): Metadata {
     title,
     description: SITE.description,
     keywords: [
-      "fleuriste Casablanca",
+      "fleuriste Rabat",
       "fleuriste de luxe",
       "décoration florale mariage",
       "design floral",
       "bouquets sur mesure",
       "sculpture florale",
-      "livraison de fleurs Casablanca",
-      "fleuriste mariage Casablanca",
-      "décoration mariage Casablanca",
+      "livraison de fleurs Rabat",
+      "fleuriste mariage Rabat",
+      "décoration mariage Rabat",
     ],
     alternates: {
       canonical: "/",
@@ -77,10 +77,10 @@ export function generateMetadata(): Metadata {
     },
     category: "flowers",
     other: {
-      "geo.region": "MA-CAS",
-      "geo.placename": "Casablanca",
-      "geo.position": "33.5731;-7.5898",
-      ICBM: "33.5731, -7.5898",
+      "geo.region": "MA-RAZ",
+      "geo.placename": "Rabat",
+      "geo.position": "34.0209;-6.8416",
+      ICBM: "34.0209, -6.8416",
     },
   };
 }

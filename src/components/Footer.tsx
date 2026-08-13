@@ -17,11 +17,11 @@ export default function Footer() {
               LaFloraDelPatron<span className="text-rose">.</span>
             </p>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/60">
-              Atelier floral de luxe à Casablanca. Mariages, sculptures et
+              Atelier floral de luxe à Rabat. Mariages, sculptures et
               événements — composés à la main, fleur à fleur.
             </p>
             <p className="mt-8 text-[11px] uppercase tracking-[0.25em] text-cream/40">
-              Conçu et cultivé avec patience à Casablanca
+              Conçu et cultivé avec patience à Rabat
             </p>
           </div>
 
@@ -93,7 +93,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col justify-between gap-4 border-t border-cream/15 pt-8 text-[11px] uppercase tracking-[0.2em] text-cream/40 sm:flex-row">
           <p>© {new Date().getFullYear()} LaFloraDelPatron — Tous droits réservés</p>
-          <p>Casablanca, Maroc</p>
+          <p>Rabat, Maroc</p>
         </div>
       </div>
     </footer>

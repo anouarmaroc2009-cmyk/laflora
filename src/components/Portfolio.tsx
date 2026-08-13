@@ -45,7 +45,7 @@ export default function Portfolio() {
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-ink/60 lg:text-right">
               Une sélection de projets récents, dessinés puis montés à la main
-              dans notre atelier de Casablanca. Chaque pièce est unique.
+              dans notre atelier de Rabat. Chaque pièce est unique.
             </p>
           </div>
         </Reveal>

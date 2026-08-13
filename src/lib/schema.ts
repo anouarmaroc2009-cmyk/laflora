@@ -15,14 +15,14 @@ export const floristJsonLd = {
   sameAs: [SITE.mapsUrl, SITE.instagramUrl],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Casablanca",
-    addressRegion: "Casablanca-Settat",
+    addressLocality: "Rabat",
+    addressRegion: "Rabat-Salé-Kénitra",
     addressCountry: "MA",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 33.5731,
-    longitude: -7.5898,
+    latitude: 34.0209,
+    longitude: -6.8416,
   },
   openingHoursSpecification: [
     {
@@ -33,11 +33,12 @@ export const floristJsonLd = {
     },
   ],
   areaServed: [
-    { "@type": "City", name: "Casablanca" },
-    { "@type": "City", name: "Mohammedia" },
     { "@type": "City", name: "Rabat" },
+    { "@type": "City", name: "Salé" },
+    { "@type": "City", name: "Témara" },
+    { "@type": "City", name: "Kénitra" },
     { "@type": "Place", name: "Salles de réception et lieux de mariage" },
-    { "@type": "Place", name: "Hôtels et villas de la Corniche" },
+    { "@type": "Place", name: "Hôtels, riads et villas privées" },
   ],
   knowsAbout: [
     "Design floral",
@@ -45,7 +46,7 @@ export const floristJsonLd = {
     "Bouquets sur mesure",
     "Sculptures florales",
     "Installations événementielles",
-    "Livraison de fleurs à Casablanca",
+    "Livraison de fleurs à Rabat et ses environs",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -57,7 +58,7 @@ export const floristJsonLd = {
           "@type": "Service",
           name: "Décoration florale de mariage",
           description:
-            "Portiques, tables, allées et bouquets de cérémonie dessinés sur mesure à Casablanca.",
+            "Portiques, tables, allées et bouquets de cérémonie dessinés sur mesure à Rabat.",
         },
       },
       {

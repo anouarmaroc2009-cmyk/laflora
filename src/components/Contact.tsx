@@ -6,15 +6,6 @@ import { SITE } from "@/lib/site";
 import { WhatsAppIcon } from "./icons";
 import { Reveal } from "./Reveal";
 
-const EVENT_TYPES = [
-  "Mariage",
-  "Cérémonie religieuse",
-  "Événement d'entreprise",
-  "Installation résidentielle",
-  "Bouquet sur mesure",
-  "Autre projet",
-];
-
 const inputClass =
   "w-full rounded-sm border border-ink/15 bg-canvas px-4 py-3.5 text-sm text-ink placeholder:text-ink/35 focus:border-rose focus:outline-none focus:ring-1 focus:ring-rose/40";
 
@@ -22,29 +13,13 @@ const labelClass =
   "mb-2.5 block text-[11px] uppercase tracking-[0.2em] text-ink/60";
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    eventType: "",
-    date: "",
-    vision: "",
-  });
-
-  const update = (key: keyof typeof form) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => setForm((f) => ({ ...f, [key]: e.target.value }));
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.vision.trim()) return;
-    const message =
-      `Bonjour LaFloraDelPatron,\n\n` +
-      `Je vous écris au sujet d'un projet.\n\n` +
-      `• Nom : ${form.name}\n` +
-      `• Type d'événement : ${form.eventType || "À définir"}\n` +
-      `• Date souhaitée : ${form.date || "À définir"}\n` +
-      `• Mon idée : ${form.vision}`;
+    if (!message.trim()) return;
     window.open(
-      `${SITE.whatsappHref}?text=${encodeURIComponent(message)}`,
+      `${SITE.whatsappHref}?text=${encodeURIComponent(message.trim())}`,
       "_blank"
     );
   };
@@ -112,7 +87,7 @@ export default function Contact() {
                   Le studio
                 </p>
                 <p className="mt-5 font-display text-3xl leading-snug text-ink">
-                  Casablanca, Maroc
+                  Rabat, Maroc
                 </p>
                 <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink/70">
                   Sur rendez-vous uniquement. L&apos;adresse exacte vous est
@@ -152,70 +127,19 @@ export default function Contact() {
               nous répondons sous 24 heures.
             </p>
 
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              <div>
-                <label htmlFor="contact-name" className={labelClass}>
-                  Nom &amp; prénom
-                </label>
-                <input
-                  id="contact-name"
-                  type="text"
-                  required
-                  autoComplete="name"
-                  value={form.name}
-                  onChange={update("name")}
-                  placeholder="Votre nom"
-                  className={inputClass}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="contact-event" className={labelClass}>
-                  Type d&apos;événement
-                </label>
-                <select
-                  id="contact-event"
-                  value={form.eventType}
-                  onChange={update("eventType")}
-                  className={inputClass}
-                >
-                  <option value="">Choisir…</option>
-                  {EVENT_TYPES.map((t) => (
-                    <option key={t} value={t}>
-                      {t}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="contact-date" className={labelClass}>
-                  Date souhaitée
-                </label>
-                <input
-                  id="contact-date"
-                  type="date"
-                  min={new Date().toISOString().split("T")[0]}
-                  value={form.date}
-                  onChange={update("date")}
-                  className={inputClass}
-                />
-              </div>
-
-              <div className="sm:col-span-2">
-                <label htmlFor="contact-vision" className={labelClass}>
-                  Votre vision
-                </label>
-                <textarea
-                  id="contact-vision"
-                  required
-                  rows={5}
-                  value={form.vision}
-                  onChange={update("vision")}
-                  placeholder="Décrivez votre lieu, vos envies, vos couleurs, votre lumière…"
-                  className={`${inputClass} resize-y`}
-                />
-              </div>
+            <div className="mt-10">
+              <label htmlFor="contact-message" className={labelClass}>
+                Votre message
+              </label>
+              <textarea
+                id="contact-message"
+                required
+                rows={8}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Bonjour LaFloraDelPatron — mariage en juin, jardin, tons ivoire et sauge…"
+                className={`${inputClass} resize-y`}
+              />
             </div>
 
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -224,10 +148,11 @@ export default function Contact() {
                 className="inline-flex items-center gap-2.5 rounded-full bg-ink px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-canvas transition-colors duration-300 hover:bg-rose-deep"
               >
                 <WhatsAppIcon className="h-4 w-4" />
-                Envoyer ma demande
+                Continuer sur WhatsApp
               </button>
               <p className="text-xs leading-relaxed text-ink/50">
-                En envoyant, vous êtes redirigé·e vers WhatsApp. Aucune commande
+                Vous êtes redirigé·e vers WhatsApp : votre message est déjà
+                écrit, il ne vous reste qu&apos;à l&apos;envoyer. Aucune commande
                 en ligne — chaque projet se discute de vive voix.
               </p>
             </div>

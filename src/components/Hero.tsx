@@ -28,7 +28,7 @@ export default function Hero({ reveal }: { reveal: boolean }) {
                 className="flex items-center gap-4 text-[11px] uppercase tracking-[0.35em] text-ink/60"
               >
                 <span className="block h-px w-10 bg-rose" aria-hidden="true" />
-                Atelier floral de luxe · Casablanca
+                Atelier floral de luxe · Rabat
               </motion.p>
 
               <motion.h1
@@ -43,7 +43,7 @@ export default function Hero({ reveal }: { reveal: boolean }) {
                 variants={item}
                 className="mt-8 max-w-md text-base leading-relaxed text-ink/70"
               >
-                Fleuriste de luxe à Casablanca, LaFloraDelPatron imagine la
+                Fleuriste de luxe à Rabat, LaFloraDelPatron imagine la
                 décoration florale de vos mariages et de vos événements —
                 bouquets sur mesure, sculptures et installations pensées fleur
                 à fleur.
@@ -74,7 +74,7 @@ export default function Hero({ reveal }: { reveal: boolean }) {
                 variants={item}
                 className="mt-9 text-[11px] uppercase tracking-[0.25em] text-ink/45"
               >
-                Sur rendez-vous · Casablanca &amp; environs
+                Sur rendez-vous · Rabat &amp; environs
               </motion.p>
             </motion.div>
           </div>
@@ -93,7 +93,7 @@ export default function Hero({ reveal }: { reveal: boolean }) {
               <div className="relative aspect-[4/5] overflow-hidden bg-linen">
                 <Image
                   src={HERO_IMAGE}
-                  alt="Bouquet de mariée aux roses poudrées, créé par LaFloraDelPatron, fleuriste de luxe à Casablanca"
+                  alt="Bouquet de mariée aux roses poudrées, créé par LaFloraDelPatron, fleuriste de luxe à Rabat"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"

@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Roses Avalanche", "Gypsophile", "Eucalyptus"],
     image: img("photo-1469371670807-013ccf25f16a"),
-    alt: "Portique de mariage habillé de cascades de roses et de gypsophile, décoration florale de mariage par LaFloraDelPatron à Casablanca",
+    alt: "Portique de mariage habillé de cascades de roses et de gypsophile, décoration florale de mariage par LaFloraDelPatron à Rabat",
     aspect: "aspect-[4/5]",
   },
   {
@@ -53,7 +53,7 @@ export const PROJECTS: Project[] = [
     title: "Opéra Végétal",
     category: "sculptures",
     year: "2024",
-    occasion: "Installation privée — Villa de la Corniche",
+    occasion: "Installation privée — Villa de Rabat",
     story:
       "Une sculpture florale suspendue, montée autour d'un cadre végétal invisible. Des roses ivoire et vert de gris, tressées pendant deux jours, qui semblent flotter au-dessus de la table.",
     palette: [
@@ -99,7 +99,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Roses Anniversaire", "Dahlias", "Ruscus"],
     image: img("photo-1519225421980-715cb0215aed"),
-    alt: "Table de réception habillée de fleurs et de bougies, installation florale événementielle à Casablanca",
+    alt: "Table de réception habillée de fleurs et de bougies, installation florale événementielle à Rabat",
     aspect: "aspect-[4/3]",
   },
   {
@@ -153,7 +153,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Orchidées Dendrobium", "Anthuriums", "Néottie"],
     image: img("photo-1462275646964-a0e3386b89fa"),
-    alt: "Composition d'orchidées aux tons profonds pour un bouquet sur mesure, atelier floral LaFloraDelPatron à Casablanca",
+    alt: "Composition d'orchidées aux tons profonds pour un bouquet sur mesure, atelier floral LaFloraDelPatron à Rabat",
     aspect: "aspect-[3/4]",
   },
   {
@@ -161,7 +161,7 @@ export const PROJECTS: Project[] = [
     title: "Haute Table",
     category: "evenements",
     year: "2024",
-    occasion: "Réception d'entreprise — Casablanca",
+    occasion: "Réception d'entreprise — Rabat",
     story:
       "Une allée de fleurs basses et de candélabres pour une soirée d'entreprise. Le décor doit soutenir la conversation, jamais la dominer : nous avons choisi des matières qui parlent bas.",
     palette: [
@@ -189,7 +189,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Roses anciennes", "Eucalyptus", "Brumalia"],
     image: img("photo-1470509037663-253afd7f0f51"),
-    alt: "Composition florale de cérémonie aux roses roses et eucalyptus, design floral de mariage à Casablanca",
+    alt: "Composition florale de cérémonie aux roses roses et eucalyptus, design floral de mariage à Rabat",
     aspect: "aspect-[4/5]",
   },
   {
@@ -207,7 +207,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Gerberas", "Roses Spray", "Statices"],
     image: img("photo-1490750967868-88aa4486c946"),
-    alt: "Champ de fleurs jaunes pour une installation florale événementielle en extérieur, décor sur mesure à Casablanca",
+    alt: "Champ de fleurs jaunes pour une installation florale événementielle en extérieur, décor sur mesure à Rabat",
     aspect: "aspect-[4/3]",
   },
 ];
