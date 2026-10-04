@@ -6,6 +6,10 @@ export const dynamic = "force-static";
 const payload = {
   version: "1.0",
   generated: SITE.dateModified,
+  // Top-level `name` so a generic consumer can identify the subject without
+  // walking into `provider`. Also what geo-checklist.dev's ai_discovery check
+  // looks for.
+  name: SITE.name,
   provider: {
     name: SITE.name,
     url: SITE.domain,

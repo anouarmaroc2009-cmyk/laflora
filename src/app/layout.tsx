@@ -43,7 +43,12 @@ export function generateMetadata(): Metadata {
     ],
     authors: [{ name: SITE.legalName }],
     creator: SITE.legalName,
-    alternates: { canonical: "/" },
+    alternates: {
+      canonical: "/",
+      types: {
+        "application/rss+xml": "/feed.xml",
+      },
+    },
     robots: {
       index: true,
       follow: true,

@@ -60,6 +60,7 @@ ${faqs}
 
 ## Optional
 
+- [Full unabridged reference](/llms-full.txt)
 - [Catalog as JSON](/ai/service.json)
 - [FAQ as JSON](/ai/faq.json)
 - [Summary as JSON](/ai/summary.json)
