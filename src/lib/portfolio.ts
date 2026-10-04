@@ -53,12 +53,13 @@ export type Project = {
 };
 
 /*
- * Catalogue imagery is currently placeholder stock, normalised by the `.plate`
- * grade in globals.css. Replace the `image` values with the atelier's own
- * photography — keep the same crop ratio and the grid needs no other change.
+ * Plate artwork lives in /public/images, composed against the `.plate` grade
+ * in globals.css: subject held in the upper two-thirds, lower third left dark
+ * because the ::after gradient already crushes it to near black. Regenerate
+ * from IMAGE_PROMPTS.md and keep each project's aspect — the grid reads these
+ * ratios and needs no other change.
  */
-const img = (id: string) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=80`;
+const img = (file: string) => `/images/${file}`;
 
 export const PROJECTS: Project[] = [
   {
@@ -75,7 +76,7 @@ export const PROJECTS: Project[] = [
       { name: "Ivoire", hex: "#F4EEE8" },
     ],
     varieties: ["Pivoines Sarah Bernhardt", "Roses anciennes", "Astilbe"],
-    image: img("photo-1519378058457-4c29a0a2efac"),
+    image: img("p5-bouquet-mariee.jpg"),
     alt: "Bouquet de mariée personnalisé aux pivoines et roses anciennes par La Flora D’El Patron à Rabat",
     aspect: "aspect-[4/5]",
   },
@@ -93,7 +94,7 @@ export const PROJECTS: Project[] = [
       { name: "Champagne", hex: "#EFDCC8" },
     ],
     varieties: ["Roses Garden Party", "Renoncules", "Eucalyptus"],
-    image: img("photo-1462275646964-a0e3386b89fa"),
+    image: img("p6-roses-degrade.jpg"),
     alt: "Bouquet personnalisé de roses en dégradé, composition florale de luxe à Hay Riad",
     aspect: "aspect-[3/4]",
   },
@@ -111,7 +112,7 @@ export const PROJECTS: Project[] = [
       { name: "Sauge", hex: "#93A08C" },
     ],
     varieties: ["Roses anciennes", "Brumalia", "Gypsophile"],
-    image: img("photo-1470509037663-253afd7f0f51"),
+    image: img("p7-ceremonie.jpg"),
     alt: "Composition florale de cérémonie aux roses anciennes, design floral de mariage à Rabat",
     aspect: "aspect-[4/5]",
   },
@@ -129,7 +130,7 @@ export const PROJECTS: Project[] = [
       { name: "Ivoire", hex: "#F2EBE4" },
     ],
     varieties: ["Roses Avalanche", "Lisianthus", "Ruscus"],
-    image: img("photo-1457089328109-e5d9bd499191"),
+    image: img("p8-boite-signature.jpg"),
     alt: "Boîte à fleurs signature de luxe remplie de roses et lisianthus, atelier floral La Flora D’El Patron",
     aspect: "aspect-square",
   },
@@ -147,7 +148,7 @@ export const PROJECTS: Project[] = [
       { name: "Lavande", hex: "#A99A9E" },
     ],
     varieties: ["Fleurs stabilisées", "Orchidées", "Cotons floraux"],
-    image: img("photo-1522748906645-95d8adfd52c7"),
+    image: img("p9-sculpture-fleurs.jpg"),
     alt: "Sculpture florale en fleurs stabilisées, poupée florale de luxe par La Flora D’El Patron",
     aspect: "aspect-[3/4]",
   },
@@ -165,7 +166,7 @@ export const PROJECTS: Project[] = [
       { name: "Encre", hex: "#141416" },
     ],
     varieties: ["Roses", "Ranunculus", "Feuillage de saison"],
-    image: img("photo-1490750967868-88aa4486c946"),
+    image: img("p10-coffret-cadeau.jpg"),
     alt: "Coffret cadeau de luxe avec fleurs, dorure et accessoires, coffret d'hommage La Flora D’El Patron",
     aspect: "aspect-[4/3]",
   },
@@ -183,7 +184,7 @@ export const PROJECTS: Project[] = [
       { name: "Gris perle", hex: "#BFBCC2" },
     ],
     varieties: ["Orchidées Phalaenopsis", "Brumalia", "Eucalyptus"],
-    image: img("photo-1513151233558-d860c5398176"),
+    image: img("p11-coffrets-entreprise.jpg"),
     alt: "Coffrets cadeaux d'entreprise fleuris pour une réception, design floral événementiel à Rabat",
     aspect: "aspect-[4/5]",
   },
@@ -201,7 +202,7 @@ export const PROJECTS: Project[] = [
       { name: "Blanc", hex: "#F7F4EC" },
     ],
     varieties: ["Fougères", "Clématites", "Roses blanches"],
-    image: img("photo-1441974231531-c6227db76b6e"),
+    image: img("p12-paysage-villa.jpg"),
     alt: "Aménagement paysager et végétation suspendue pour une villa de luxe à Hay Riad, Rabat",
     aspect: "aspect-[4/5]",
   },
@@ -219,7 +220,7 @@ export const PROJECTS: Project[] = [
       { name: "Sauge", hex: "#93A08C" },
     ],
     varieties: ["Roses Avalanche", "Gypsophile", "Yucca", "Stéas"],
-    image: img("photo-1469371670807-013ccf25f16a"),
+    image: img("p13-portique-ivoire.jpg"),
     alt: "Portique floral ivoire pour un mariage, décoration florale de luxe par La Flora D’El Patron à Rabat",
     aspect: "aspect-[4/5]",
   },

@@ -6,8 +6,13 @@ import { WhatsAppIcon, ArrowDown } from "./icons";
 import { SITE } from "@/lib/site";
 import { EASE } from "@/lib/motion";
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=2200&q=85";
+/*
+ * Full-bleed backdrop. Two overlays sit on top of this — a bottom-to-top
+ * void gradient and a radial that reaches rgba(8,8,8,0.92) — so the source is
+ * composed dark with its subject in the upper two-thirds. Regenerate from
+ * IMAGE_PROMPTS.md, keep it wide.
+ */
+const HERO_IMAGE = "/images/hero.jpg";
 
 const rise = (delay: number) => ({
   initial: { opacity: 0, y: 34 },

@@ -1,7 +1,12 @@
 # Image Prompts — La Flora D'El Patron
 
-13 bespoke prompts, one per gallery slot. Written against the site's
-actual rendering pipeline, not generic "pretty flower" text.
+15 bespoke prompts, one per image slot — 4 collections, 9 portfolio plates,
+1 hero backdrop, 1 atelier panel. Written against the site's actual
+rendering pipeline, not generic "pretty flower" text.
+
+> **Status: generated and shipped.** See [As built](#as-built) at the bottom
+> for the committed filenames, the 4:5 workaround, and the seams to edit if
+> you want to regenerate at higher quality.
 
 ## Before you generate: read this
 
@@ -183,23 +188,94 @@ silhouette survives. Fine detail is invisible, so there is none.
 
 ---
 
+## 14. Hero backdrop
+
+*Alt: (decorative — the hero image sits behind the headline, so it carries
+`alt=""` deliberately)*
+
+> **Style anchor B** + A florist's atelier at dusk. Charcoal-black
+> surroundings, a single shaft of low warm window light from the upper left,
+> a worktable of ivory garden roses and trailing eucalyptus, one tall
+> arrangement rising on the right. 35mm at f/2.0. Subject held in the upper
+> two-thirds so the lower half can fall into darkness, generous empty space.
+
+**Ratio** 16:9 · **replaces** `photo-1469371670807-013ccf25f16a` (also served
+as the social share image — Hero and `og:image` are deliberately the same
+asset)
+
+Two overlays sit on top of this in `src/components/Hero.tsx`: a
+bottom-to-top void gradient and a radial reaching `rgba(8,8,8,0.92)`. It
+needs high value contrast in the **upper** half or the headline reads as
+mush.
+
+## 15. Atelier
+
+*Alt: Table de réception fleurie et éclairée à la chandelle, installation
+florale de luxe par La Flora D'El Patron à Rabat*
+
+> **Style anchor B** + A long reception table dressed with a low, dense run
+> of ivory garden roses and blush blooms, candle-and-lantern key light from
+> the lower left, glassware glinting. 85mm at f/2.0. Warm amber points
+> against near-black, nothing above the table line but darkness. Horizontal
+> emphasis, subject in the upper two-thirds.
+
+**Ratio** 3:4 · **replaces** `photo-1519225421980-715cb0215aed`
+
+---
+
 ## Note on duplication
 
-Four Unsplash photos currently serve **two slots each with contradictory
-alt text** — a bouquet photo is labelled both "bouquet personnalisé" and
-"bouquet de mariée"; a plant photo is labelled both "plantes d'intérieur"
-and "aménagement paysager". Generating 13 distinct images fixes that, and
-removes the accessibility problem of one photo describing two different
-things.
+Four Unsplash photos previously served **two slots each with contradictory
+alt text** — a bouquet photo was labelled both "bouquet personnalisé" and
+"bouquet de mariée"; a plant photo was labelled both "plantes d'intérieur"
+and "aménagement paysager". 15 distinct images fix that and remove the
+accessibility problem of one photo describing two different things.
 
-## Swap procedure (once images exist)
+---
 
-Drop files into `public/images/` and point the ids at them. `img()` in
-both files is the single seam:
+## As built
 
-- `src/lib/collections.ts:11` → `w=1400`
-- `src/lib/portfolio.ts` → `w=1600`
+All 15 prompts above were generated with Higgsfield `z_image` and committed
+to `public/images/`:
 
-Replace `img("photo-…")` with `img("/images/<name>.jpg")`, drop the
-Unsplash query string, then mirror the identical changes into
-`index.html`. Re-run the overflow and lazy-load audits before deploying.
+| Slot | File | Source px | Target ratio |
+|---|---|---|---|
+| 1–4 | `c1`–`c4-*.jpg` | 480×480 | 1:1 |
+| 5–8, 11–13 | `p5`–`p13-*.jpg` | 1400×1867 | 4:5 / 3:4 |
+| 9 | `p9-sculpture-fleurs.jpg` | 1400×1400 | 1:1 |
+| 10 | `p10-coffret-cadeau.jpg` | 1400×1050 | 4:3 |
+| 14 | `hero.jpg` | 1920×1080 | 16:9 |
+| 15 | `atelier.jpg` | 1200×1600 | 3:4 |
+
+`z_image` supports only `1:1`, `4:3`, `3:4`, `16:9`, `9:16` — it has **no
+4:5**. The four 4:5 portfolio targets were therefore generated at 3:4 and
+relied on `.plate img { object-fit: cover }` to crop. If you re-generate
+these with a model that supports 4:5 natively, the swap is a straight
+file-for-file replacement; nothing in the code depends on the source ratio.
+
+Total on the wire: **2.79 MB** for all 15 (down from ~70 MB of raw PNG).
+`next/image` re-encodes per viewport, so the 480px collection sources still
+ship crisp at 2× for their 96–112px slots.
+
+### Seams
+
+`img()` is the single indirection for the gallery:
+
+- `src/lib/collections.ts` → `const img = (file) => \`/images/${file}\``
+- `src/lib/portfolio.ts` → same helper
+- `src/components/Hero.tsx` → `HERO_IMAGE = "/images/hero.jpg"`
+- `src/components/About.tsx` → inline `src="/images/atelier.jpg"`
+- `src/lib/site.ts` → `ogImage`, **absolute** because JSON-LD
+  `schema.ts` reuses it and a relative URL is invalid there
+
+`index.html` is hand-maintained (git-tracked, not a build artifact) and must
+be mirrored by hand. It uses `public/images/...` (repo-root-relative) while
+the Next app uses `/images/...` (web-root-relative) — do not unify these.
+
+Verified after the swap: 15/15 assets referenced in the DOM, 0 Unsplash
+refs in source or output, all `content-type: image/jpeg`, no duplicate
+`alt` strings, French copy intact, no horizontal overflow.
+
+---
+
+Prompts curated from the open community by [YouMind.com](https://youmind.com) ❤️

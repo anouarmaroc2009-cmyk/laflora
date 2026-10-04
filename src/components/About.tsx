@@ -75,7 +75,7 @@ export default function About() {
             <div className="relative h-full min-h-[460px] overflow-hidden rounded-2xl">
               <div className="plate h-full w-full">
                 <Image
-                  src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80"
+                  src="/images/atelier.jpg"
                   alt="Table de réception fleurie et éclairée à la chandelle, installation florale de luxe par La Flora D’El Patron à Rabat"
                   fill
                   sizes="(min-width: 1024px) 48vw, 92vw"

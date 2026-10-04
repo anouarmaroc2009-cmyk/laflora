@@ -1,4 +1,4 @@
-﻿export type Collection = {
+export type Collection = {
   id: string;
   title: string;
   category: string;
@@ -8,8 +8,12 @@
   alt: string;
 };
 
-const img = (id: string) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1400&q=80`;
+/*
+ * Plate artwork lives in /public/images. These render at 96-112px, so the
+ * sources are 480px — deliberately oversized for 2x density, deliberately
+ * tiny in bytes. Regenerate from IMAGE_PROMPTS.md, keep the 1:1 ratio.
+ */
+const img = (file: string) => `/images/${file}`;
 
 /*
  * Signature offerings. Pricing is intentionally not published: every order is
@@ -23,7 +27,7 @@ export const COLLECTIONS: Collection[] = [
     description:
       "Une composition pensée pour une personne précise : sa morphologie, sa robe, la saison et l'heure de la cérémonie. Nous ne vendons pas des arrangements — nous composons.",
     details: ["Bouquet de mariée", "Composition d'anniversaire", "Bouquet d'entreprise"],
-    image: img("photo-1519378058457-4c29a0a2efac"),
+    image: img("c1-bouquet-personnalise.jpg"),
     alt: "Bouquet personnalisé noué à la main, collection de bouquets de luxe La Flora D’El Patron",
   },
   {
@@ -33,7 +37,7 @@ export const COLLECTIONS: Collection[] = [
     description:
       "La boîte à chapeau signature, et la sculpture portée en fleurs stabilisées. Deux objets floraux qui survivent à la cérémonie.",
     details: ["Boîte à chapeau", "Sculpture florale", "Fleurs stabilisées"],
-    image: img("photo-1457089328109-e5d9bd499191"),
+    image: img("c2-boite-nounours.jpg"),
     alt: "Boîte à fleurs signature et sculpture florale de luxe, collection La Flora D’El Patron à Rabat",
   },
   {
@@ -43,7 +47,7 @@ export const COLLECTIONS: Collection[] = [
     description:
       "Paniers d'hommage, coffrets d'entreprise numérotés, cadeaux de fin d'année et anniversaires. Une curation d'objets choisis, jamais empilés au hasard.",
     details: ["Coffret d'hommage", "Cadeau d'entreprise", "Coffret numéroté"],
-    image: img("photo-1490750967868-88aa4486c946"),
+    image: img("c3-cadeaux-coffrets.jpg"),
     alt: "Coffrets et cadeaux de luxe floraux, sélection de cadeaux La Flora D’El Patron",
   },
   {
@@ -53,7 +57,7 @@ export const COLLECTIONS: Collection[] = [
     description:
       "Plantes d'intérieur d'exception en pot, et projets d'aménagement paysager pour villas, terrasses et patios. Étude, plan, plantation — puis entretien.",
     details: ["Plantes d'intérieur", "Terrasse & patio", "Plan d'aménagement"],
-    image: img("photo-1441974231531-c6227db76b6e"),
+    image: img("c4-interieur-paysage.jpg"),
     alt: "Plantes d'intérieur et aménagement paysager pour villa de luxe, atelier La Flora D’El Patron",
   },
 ];

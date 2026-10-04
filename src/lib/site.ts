@@ -20,8 +20,9 @@ export const SITE = {
   ] as const,
   description:
     "La Flora D’El Patron — Fleuriste, décorateur et paysagiste à Hay Riad, Rabat. Bouquets personnalisés sur mesure, boîtes et nounours de fleurs, cadeaux & coffrets de luxe, plantes et aménagement paysager. Mariages, événements VIP et résidences de prestige. 06 82 72 50 55.",
-  ogImage:
-    "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1200&h=630&q=80",
+  // Absolute, not a root-relative path: this value is consumed by the JSON-LD
+  // `image` field in schema.ts, where a relative URL is invalid.
+  ogImage: "https://lafloradelpatron.com/images/hero.jpg",
   ogImageAlt:
     "Composition florale de luxe réalisée par La Flora D’El Patron, fleuriste à Hay Riad, Rabat",
 } as const;
