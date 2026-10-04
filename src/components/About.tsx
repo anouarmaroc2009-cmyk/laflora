@@ -30,7 +30,7 @@ export default function About() {
             <SectionHead
               eyebrow="La maison"
               title="Un atelier, pas un étal."
-              lede="La Flora D’El Patron est un atelier de fleuristerie, de décoration et de paysage installé à Hay Riad, Rabat. Nous ne travaillons qu'en commande : chaque pièce est composée à la main, à partir de fleurs choisies le matin même chez nos grossistes."
+              lede="La Flora D’El Patron est un atelier de fleuristerie, de décoration et de paysage installé à Hay Riad, Rabat. Nous ne travaillons qu’en commande : chaque pièce est composée à la main, à partir de fleurs choisies le matin même."
             />
 
             <Reveal delay={0.24}>

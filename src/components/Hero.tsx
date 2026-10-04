@@ -91,6 +91,16 @@ export default function Hero() {
           </a>
 
           <a
+            href={SITE.whatsappFournisseurHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ul inline-flex items-center gap-2.5 text-[10px] uppercase tracking-[0.24em] text-chalk"
+          >
+            Besoin d&apos;un fournisseur
+            <ArrowDown className="h-3.5 w-3.5 text-mauve" />
+          </a>
+
+          <a
             href="#portfolio"
             className="ul inline-flex items-center gap-2.5 text-[10px] uppercase tracking-[0.24em] text-chalk"
           >

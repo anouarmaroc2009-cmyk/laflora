@@ -175,7 +175,7 @@ export const PROJECTS: Project[] = [
     title: "Soirée Ambiance",
     category: "cadeaux",
     year: "2024",
-    occasion: "Cadeaux d'entreprise — Série annuelle",
+    occasion: "Cadeaux d’entreprise — Série de cent coffrets",
     story:
       "Cent coffrets identiques, numérotés, livrés sur un même créneau. La cohérence, à cette échelle, est la vraie démonstration de luxe.",
     palette: [

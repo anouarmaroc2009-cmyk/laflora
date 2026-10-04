@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
-import { floristJsonLd, websiteJsonLd } from "@/lib/schema";
+import { floristJsonLd, websiteJsonLd, faqJsonLd } from "@/lib/schema";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -90,7 +90,7 @@ export function generateMetadata(): Metadata {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const jsonLd = [floristJsonLd, websiteJsonLd];
+  const jsonLd = [floristJsonLd, websiteJsonLd, faqJsonLd];
 
   return (
     <html lang="fr" className={`${cormorant.variable} ${jakarta.variable}`}>

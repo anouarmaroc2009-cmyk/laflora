@@ -1,5 +1,6 @@
 import { SITE } from "./site";
 import { COLLECTIONS } from "./collections";
+import { FAQS } from "./faqs";
 
 export const floristJsonLd = {
   "@context": "https://schema.org",
@@ -17,6 +18,7 @@ export const floristJsonLd = {
   image: [SITE.ogImage],
   hasMap: SITE.mapsUrl,
   sameAs: [SITE.instagramUrl],
+  dateModified: SITE.dateModified,
   address: {
     "@type": "PostalAddress",
     streetAddress: "Hay Riad",
@@ -108,5 +110,27 @@ export const websiteJsonLd = {
   url: SITE.domain,
   name: SITE.name,
   inLanguage: "fr-MA",
+  dateModified: SITE.dateModified,
   publisher: { "@id": `${SITE.domain}/#business` },
+};
+
+/*
+ * FAQPage mirrors the visible FAQ section rendered by components/Faq.tsx, from
+ * the identical FAQS array. Both must stay in sync: markup without matching
+ * on-page content is a structured-data violation, not a ranking win.
+ */
+export const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${SITE.domain}/#faq`,
+  inLanguage: "fr-MA",
+  dateModified: SITE.dateModified,
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
 };

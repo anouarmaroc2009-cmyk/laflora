@@ -7,6 +7,7 @@ import Marquee from "./Marquee";
 import Portfolio from "./Portfolio";
 import Collections from "./Collections";
 import About from "./About";
+import Faq from "./Faq";
 import Contact from "./Contact";
 import Footer from "./Footer";
 
@@ -34,6 +35,7 @@ export default function PageSite() {
         <Portfolio />
         <Collections />
         <About />
+        <Faq />
         <Contact />
       </main>
 
