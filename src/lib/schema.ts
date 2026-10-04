@@ -4,7 +4,10 @@ import { FAQS } from "./faqs";
 
 export const floristJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["Florist", "LocalBusiness", "HomeAndConstructionBusiness"],
+  // Order is a set, not a ranking, but some consumers read only the first entry
+  // and match it against their known Organization/LocalBusiness vocabulary.
+  // LocalBusiness leads; Florist stays declared as the specific subtype.
+  "@type": ["LocalBusiness", "Florist", "HomeAndConstructionBusiness"],
   "@id": `${SITE.domain}/#business`,
   name: SITE.name,
   legalName: SITE.legalName,
