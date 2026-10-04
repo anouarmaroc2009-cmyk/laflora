@@ -26,17 +26,16 @@ export const SITE = {
   whatsappHref:
     "https://wa.me/212682725055?text=Bonjour%20La%20Flora%20D%27El%20Patron%2C%20je%20souhaite%20commander%20une%20composition%20florale.",
   /*
-   * Supplier-enquiry CTA. Deliberately distinct from the client message above:
-   * this one is written from the supplier's side, matching the "Besoin d'un
-   * fournisseur" label it sits under. It used to read as a client quote request,
-   * so a supplier clicking it sent "je souhaite un devis" — the opposite of
-   * what they came to say.
+   * B2B / supply CTA. The atelier is the supplier here, so the sender is a
+   * professional *looking for* a supplier — a florist, an agency, a hotel —
+   * and La Flora is the one they are contacting about it. Keep the sender as the
+   * buyer: do not write it as a supplier pitching their own stock to us.
    *
-   * "fournisseur" is used rather than "grossiste" to stay consistent with the
-   * visible label.
+   * "fournisseur" rather than "grossiste", to stay consistent with the visible
+   * label it sits under.
    */
   whatsappFournisseurHref:
-    "https://wa.me/212682725055?text=Bonjour%20La%20Flora%20D%27El%20Patron%2C%20je%20suis%20fournisseur%20de%20fleurs%20et%20je%20souhaite%20vous%20pr%C3%A9senter%20mes%20produits%20pour%20vos%20compositions.%20Puis-je%20vous%20envoyer%20mon%20catalogue%20%3F",
+    "https://wa.me/212682725055?text=Bonjour%20La%20Flora%20D%27El%20Patron%2C%20je%20suis%20un%20professionnel%20et%20je%20recherche%20un%20fournisseur%20de%20fleurs%20fiable%20pour%20mes%20compositions.%20Pourriez-vous%20me%20transmettre%20votre%20catalogue%20et%20vos%20tarifs%20%3F",
   mapsUrl: "https://maps.app.goo.gl/thqqJJwLwgoBFQyq7",
   instagramUrl: "https://www.instagram.com/laflora.delpatron",
   hours: [
