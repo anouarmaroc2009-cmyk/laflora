@@ -1,15 +1,41 @@
-export type CategoryId = "mariages" | "sculptures" | "evenements";
+export type CategoryId = "bouquets" | "boites" | "cadeaux" | "plantes";
 
 export type Category = {
   id: CategoryId;
   label: string;
-  shortLabel: string;
+  index: string;
+  blurb: string;
 };
 
 export const CATEGORIES: Category[] = [
-  { id: "mariages", label: "Mariages", shortLabel: "Mariage" },
-  { id: "sculptures", label: "Sculptures sur mesure", shortLabel: "Sculpture" },
-  { id: "evenements", label: "Installations événementielles", shortLabel: "Événement" },
+  {
+    id: "bouquets",
+    label: "Les Bouquets Personnalisés",
+    index: "01",
+    blurb:
+      "Compositions nouées à la main, dessinées pour un visage, une tenue, une saison.",
+  },
+  {
+    id: "boites",
+    label: "Boîtes & Nounours de Fleurs",
+    index: "02",
+    blurb:
+      "Boîtes signature et sculptures de fleurs éternelles, montées comme des pièces d'atelier.",
+  },
+  {
+    id: "cadeaux",
+    label: "Cadeaux & Coffrets",
+    index: "03",
+    blurb:
+      "Coffrets de luxe, paniers d'hommage et cadeaux d'entreprise, préparés sur commande.",
+  },
+  {
+    id: "plantes",
+    label: "Plantes & Aménagement Paysager",
+    index: "04",
+    blurb:
+      "Plantes d'intérieur d'exception et projets paysagers pour villas, terrasses et patios.",
+  },
 ];
 
 export type Project = {
@@ -26,188 +52,175 @@ export type Project = {
   aspect: string;
 };
 
+/*
+ * Catalogue imagery is currently placeholder stock, normalised by the `.plate`
+ * grade in globals.css. Replace the `image` values with the atelier's own
+ * photography — keep the same crop ratio and the grid needs no other change.
+ */
 const img = (id: string) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=80`;
 
 export const PROJECTS: Project[] = [
   {
-    id: "le-grand-voile",
-    title: "Le Grand Voile",
-    category: "mariages",
+    id: "noueuse-silence",
+    title: "Noueuse de Silence",
+    category: "bouquets",
     year: "2025",
-    occasion: "Mariage — Jardin des Oliviers",
+    occasion: "Bouquet de mariée — Villa, Hay Riad",
     story:
-      "Un portique de six mètres habillé de cascades de roses et de gypsophile, pensé pour encadrer un échange sous les oliviers. Les tiges ont été préparées une à une, la veille, au frais de l'atelier.",
+      "Un bouquet tombant de pivoines et de roses anciennes, noué au fil de fer vert et posé contre une robe de soie. Peu de fleurs, mais aucune de travers.",
     palette: [
-      { name: "Ivoire", hex: "#F2EAD9" },
-      { name: "Rose poudré", hex: "#E5C4B8" },
-      { name: "Sauge", hex: "#93A08C" },
+      { name: "Pivoine", hex: "#F0D4DE" },
+      { name: "Mauve", hex: "#B784A7" },
+      { name: "Ivoire", hex: "#F4EEE8" },
     ],
-    varieties: ["Roses Avalanche", "Gypsophile", "Eucalyptus"],
-    image: img("photo-1469371670807-013ccf25f16a"),
-    alt: "Portique de mariage habillé de cascades de roses et de gypsophile, décoration florale de mariage par LaFloraDelPatron à Rabat",
+    varieties: ["Pivoines Sarah Bernhardt", "Roses anciennes", "Astilbe"],
+    image: img("photo-1519378058457-4c29a0a2efac"),
+    alt: "Bouquet de mariée personnalisé aux pivoines et roses anciennes par LaFloraDelPatron à Rabat",
     aspect: "aspect-[4/5]",
   },
   {
-    id: "opera-vegetal",
-    title: "Opéra Végétal",
-    category: "sculptures",
-    year: "2024",
-    occasion: "Installation privée — Villa de Rabat",
-    story:
-      "Une sculpture florale suspendue, montée autour d'un cadre végétal invisible. Des roses ivoire et vert de gris, tressées pendant deux jours, qui semblent flotter au-dessus de la table.",
-    palette: [
-      { name: "Ivoire", hex: "#EFE7D8" },
-      { name: "Vert de gris", hex: "#9AA88F" },
-      { name: "Blanc", hex: "#FBF8F1" },
-    ],
-    varieties: ["Roses Vendela", "Lisianthus", "Fougère de Sologne"],
-    image: img("photo-1457089328109-e5d9bd499191"),
-    alt: "Sculpture florale de roses ivoire et vertes montée à la main, œuvre sur mesure du fleuriste LaFloraDelPatron",
-    aspect: "aspect-[3/4]",
-  },
-  {
-    id: "la-reine-marie",
-    title: "La Reine Marie",
-    category: "mariages",
+    id: "veil-de-rosee",
+    title: "Voile de Rosée",
+    category: "bouquets",
     year: "2025",
-    occasion: "Bouquet de mariée — Hôtel particulier",
+    occasion: "Composition d'anniversaire — Clientèle privée",
     story:
-      "Un bouquet tombant aux roses poudrées et renoncules, pensé pour une robe sans manches et une réception à la lumière chaude du soir. Attaché au fil de fer vert, comme autrefois.",
+      "Un dégradé de roses, du plus clair au plus profond, noué si serré qu'il tient debout. Un bouquet qui se tient seul dans son vase, comme un objet.",
     palette: [
-      { name: "Rose poudré", hex: "#E7C7BA" },
-      { name: "Corail", hex: "#D89A86" },
-      { name: "Crème", hex: "#F4EBDD" },
+      { name: "Rose ancien", hex: "#C9A2AE" },
+      { name: "Prune", hex: "#7A4F63" },
+      { name: "Champagne", hex: "#EFDCC8" },
     ],
-    varieties: ["Roses Garden Party", "Renoncules", "Astilbe"],
-    image: img("photo-1519378058457-4c29a0a2efac"),
-    alt: "Bouquet de mariée aux roses poudrées et renoncules, réalisé sur mesure par la fleuriste LaFloraDelPatron",
+    varieties: ["Roses Garden Party", "Renoncules", "Eucalyptus"],
+    image: img("photo-1462275646964-a0e3386b89fa"),
+    alt: "Bouquet personnalisé de roses en dégradé, composition florale de luxe à Hay Riad",
     aspect: "aspect-[3/4]",
   },
   {
-    id: "diner-aux-chandelles",
-    title: "Dîner aux Chandelles",
-    category: "evenements",
+    id: "aube-pale",
+    title: "Aube Pâle",
+    category: "bouquets",
     year: "2024",
-    occasion: "Table de réception — Domaine privé",
+    occasion: "Cérémonie intime — Jardin privé",
     story:
-      "Une table basse et douze convives, des mousses basses de fleurs, des bougies posées entre les verres. La lumière compte autant que la fleur : nous avons dessiné les ombres d'abord.",
+      "Une cérémonie avant la chaleur. Des roses anciennes en tons pâles, un chemin de pétales entre deux rangs d'invités. Peu de fleurs, bien placées.",
     palette: [
-      { name: "Terracotta", hex: "#B26B52" },
-      { name: "Miel", hex: "#C9A24B" },
-      { name: "Ivoire", hex: "#F1E8D8" },
+      { name: "Craie", hex: "#EDE6E2" },
+      { name: "Mauve", hex: "#B784A7" },
+      { name: "Sauge", hex: "#93A08C" },
     ],
-    varieties: ["Roses Anniversaire", "Dahlias", "Ruscus"],
-    image: img("photo-1519225421980-715cb0215aed"),
-    alt: "Table de réception habillée de fleurs et de bougies, installation florale événementielle à Rabat",
+    varieties: ["Roses anciennes", "Brumalia", "Gypsophile"],
+    image: img("photo-1470509037663-253afd7f0f51"),
+    alt: "Composition florale de cérémonie aux roses anciennes, design floral de mariage à Rabat",
+    aspect: "aspect-[4/5]",
+  },
+  {
+    id: "boite-signature",
+    title: "La Boîte Signature",
+    category: "boites",
+    year: "2025",
+    occasion: "Coffret-round — Mariage à Rabat",
+    story:
+      "La boîte à chapeau signature, habillée de crêpe et de ruban de soie, remplie à la main juste avant la remise. Douze fleurs, aucune de réserve.",
+    palette: [
+      { name: "Mauve vif", hex: "#C779A2" },
+      { name: "Nuit", hex: "#17171B" },
+      { name: "Ivoire", hex: "#F2EBE4" },
+    ],
+    varieties: ["Roses Avalanche", "Lisianthus", "Ruscus"],
+    image: img("photo-1457089328109-e5d9bd499191"),
+    alt: "Boîte à fleurs signature de luxe remplie de roses et lisianthus, atelier floral LaFloraDelPatron",
+    aspect: "aspect-square",
+  },
+  {
+    id: "nounours-etermel",
+    title: "Nounours Éternel",
+    category: "boites",
+    year: "2024",
+    occasion: "Sculpture florale — Vitrine, Hay Riad",
+    story:
+      "Une sculpture-portée en fleurs stabilisées, monte à l'atelier et livrée en main propre. Elle ne se fane pas : c'est tout l'intérêt.",
+    palette: [
+      { name: "Orchidée", hex: "#9C7BA6" },
+      { name: "Encre", hex: "#0E0E10" },
+      { name: "Lavande", hex: "#A99A9E" },
+    ],
+    varieties: ["Fleurs stabilisées", "Orchidées", "Cotons floraux"],
+    image: img("photo-1522748906645-95d8adfd52c7"),
+    alt: "Sculpture florale en fleurs stabilisées, poupée florale de luxe par LaFloraDelPatron",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    id: "coffret-ivoire",
+    title: "Coffret Ivoire",
+    category: "cadeaux",
+    year: "2025",
+    occasion: "Panier d'hommage — Famille cliente",
+    story:
+      "Un coffret de cadeau haut de gamme : fleurs, chocolat fin, bougie parfumée, carte manuscrite. Chaque objet est choisi, jamais empilé.",
+    palette: [
+      { name: "Ivoire", hex: "#F1EADF" },
+      { name: "Or pâle", hex: "#C7A24B" },
+      { name: "Encre", hex: "#141416" },
+    ],
+    varieties: ["Roses", "Ranunculus", "Feuillage de saison"],
+    image: img("photo-1490750967868-88aa4486c946"),
+    alt: "Coffret cadeau de luxe avec fleurs, dorure et accessoires, coffret d'hommage LaFloraDelPatron",
     aspect: "aspect-[4/3]",
+  },
+  {
+    id: "soiree-ambiance",
+    title: "Soirée Ambiance",
+    category: "cadeaux",
+    year: "2024",
+    occasion: "Cadeaux d'entreprise — Série annuelle",
+    story:
+      "Cent coffrets identiques, numérotés, livrés sur un même créneau. La cohérence, à cette échelle, est la vraie démonstration de luxe.",
+    palette: [
+      { name: "Nuit", hex: "#0E0E10" },
+      { name: "Mauve", hex: "#B784A7" },
+      { name: "Gris perle", hex: "#BFBCC2" },
+    ],
+    varieties: ["Orchidées Phalaenopsis", "Brumalia", "Eucalyptus"],
+    image: img("photo-1513151233558-d860c5398176"),
+    alt: "Coffrets cadeaux d'entreprise fleuris pour une réception, design floral événementiel à Rabat",
+    aspect: "aspect-[4/5]",
   },
   {
     id: "jardin-suspendu",
     title: "Jardin Suspendu",
-    category: "evenements",
+    category: "plantes",
     year: "2025",
-    occasion: "Plafond floral — Réception intérieure",
+    occasion: "Aménagement paysager — Terrasse, Hay Riad",
     story:
-      "Un plafond végétal de deux cents mètres carrés, des fougères et des fleurs blanches accrochées tige par tige. Les invités levaient les yeux avant de parler — exactement l'effet recherché.",
+      "Deux cents mètres carrés de végétation suspendue, fougères et fleurs blanches accrochées tige par tige. Les invités levaient les yeux avant de parler.",
     palette: [
       { name: "Vert forêt", hex: "#3F5245" },
       { name: "Fougère", hex: "#7C8A6E" },
       { name: "Blanc", hex: "#F7F4EC" },
     ],
-    varieties: ["Fougères", "Roses blanche", "Clématites"],
+    varieties: ["Fougères", "Clématites", "Roses blanches"],
     image: img("photo-1441974231531-c6227db76b6e"),
-    alt: "Plafond végétal suspendu de feuillages et de fleurs blanches, installation florale événementielle sur mesure",
+    alt: "Aménagement paysager et végétation suspendue pour une villa de luxe à Hay Riad, Rabat",
     aspect: "aspect-[4/5]",
   },
   {
-    id: "mineral-et-fleur",
-    title: "Minéral & Fleur",
-    category: "sculptures",
+    id: "portique-ivoire",
+    title: "Portique Ivoire",
+    category: "plantes",
     year: "2024",
-    occasion: "Sculpture d'atelier — Exposition",
+    occasion: "Couronnement floral — Mariage, Rabat",
     story:
-      "Une rencontre entre la pierre et le pétale : des pivoines posées sur des blocs d'argile brute, des rameaux courbés comme des échafaudages. Une pièce d'atelier, hors commande, pour le plaisir.",
+      "Un portique de six mètres habillé de cascades de roses et de gypsophile, encadré de Yucca et de stéas. La structure disparaît sous le végétal.",
     palette: [
-      { name: "Peau", hex: "#D9B7A0" },
-      { name: "Pivoine", hex: "#C86F6F" },
-      { name: "Argile", hex: "#A67B5B" },
+      { name: "Ivoire", hex: "#F2EAD9" },
+      { name: "Mauve pâle", hex: "#C79FB8" },
+      { name: "Sauge", hex: "#93A08C" },
     ],
-    varieties: ["Pivoines Sarah Bernhardt", "Amarantes", "Branches d'olivier"],
-    image: img("photo-1522748906645-95d8adfd52c7"),
-    alt: "Sculpture florale mêlant pivoines, argile et rameaux, création florale sur mesure de l'atelier LaFloraDelPatron",
-    aspect: "aspect-square",
-  },
-  {
-    id: "serre-privee",
-    title: "Serre Privée",
-    category: "sculptures",
-    year: "2023",
-    occasion: "Composition sculpturale — Boutique privée",
-    story:
-      "Des orchidées dans des tons profonds, posées comme une collection dans une serre miniature. Une commande particulière pour une vitrine, qui n'a jamais quitté nos mains jusqu'au lieu de pose.",
-    palette: [
-      { name: "Orchidée", hex: "#9C7BA6" },
-      { name: "Encre", hex: "#2C2A31" },
-      { name: "Lavande", hex: "#A99A9E" },
-    ],
-    varieties: ["Orchidées Dendrobium", "Anthuriums", "Néottie"],
-    image: img("photo-1462275646964-a0e3386b89fa"),
-    alt: "Composition d'orchidées aux tons profonds pour un bouquet sur mesure, atelier floral LaFloraDelPatron à Rabat",
-    aspect: "aspect-[3/4]",
-  },
-  {
-    id: "haute-table",
-    title: "Haute Table",
-    category: "evenements",
-    year: "2024",
-    occasion: "Réception d'entreprise — Rabat",
-    story:
-      "Une allée de fleurs basses et de candélabres pour une soirée d'entreprise. Le décor doit soutenir la conversation, jamais la dominer : nous avons choisi des matières qui parlent bas.",
-    palette: [
-      { name: "Blanc cassé", hex: "#F2EEE5" },
-      { name: "Doré", hex: "#C7A24B" },
-      { name: "Vert olive", hex: "#6F7559" },
-    ],
-    varieties: ["Orchidées Phalaenopsis", "Brumalia", "Eucalyptus"],
-    image: img("photo-1513151233558-d860c5398176"),
-    alt: "Décoration florale de table pour réception, allées de fleurs basses et candélabres, design floral événementiel",
+    varieties: ["Roses Avalanche", "Gypsophile", "Yucca", "Stéas"],
+    image: img("photo-1469371670807-013ccf25f16a"),
+    alt: "Portique floral ivoire pour un mariage, décoration florale de luxe par LaFloraDelPatron à Rabat",
     aspect: "aspect-[4/5]",
-  },
-  {
-    id: "laube",
-    title: "L'Aube",
-    category: "mariages",
-    year: "2023",
-    occasion: "Cérémonie intime — Jardin privé",
-    story:
-      "Une cérémonie à l'aube, avant la chaleur. Des roses anciennes dans des tons pâles, posées sur des chaises en fer, un chemin de pétales entre deux rangs d'invités. Peu de fleurs, bien placées.",
-    palette: [
-      { name: "Rose ancien", hex: "#C48B81" },
-      { name: "Lilas", hex: "#A99A9E" },
-      { name: "Crème", hex: "#F3ECDF" },
-    ],
-    varieties: ["Roses anciennes", "Eucalyptus", "Brumalia"],
-    image: img("photo-1470509037663-253afd7f0f51"),
-    alt: "Composition florale de cérémonie aux roses roses et eucalyptus, design floral de mariage à Rabat",
-    aspect: "aspect-[4/5]",
-  },
-  {
-    id: "champ-de-couleur",
-    title: "Champ de Couleur",
-    category: "evenements",
-    year: "2024",
-    occasion: "Installation en extérieur — Bord de mer",
-    story:
-      "Des centaines de tiges jaunes plantées dans un champ de sable, comme un tableau de séchage. Le vent a participé au projet ; nous avons laissé les fleurs bouger.",
-    palette: [
-      { name: "Jonquille", hex: "#D8A93C" },
-      { name: "Ocre", hex: "#C47B3A" },
-      { name: "Vert prairie", hex: "#6C8A54" },
-    ],
-    varieties: ["Gerberas", "Roses Spray", "Statices"],
-    image: img("photo-1490750967868-88aa4486c946"),
-    alt: "Champ de fleurs jaunes pour une installation florale événementielle en extérieur, décor sur mesure à Rabat",
-    aspect: "aspect-[4/3]",
   },
 ];

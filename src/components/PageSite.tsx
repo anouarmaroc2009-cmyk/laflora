@@ -1,42 +1,39 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
-import IntroOverlay from "./IntroOverlay";
 import Header from "./Header";
 import Hero from "./Hero";
+import Marquee from "./Marquee";
 import Portfolio from "./Portfolio";
-import Philosophy from "./Philosophy";
+import Collections from "./Collections";
+import About from "./About";
 import Contact from "./Contact";
 import Footer from "./Footer";
 
 export default function PageSite() {
-  const [introDone, setIntroDone] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = !introDone || menuOpen ? "hidden" : "";
+    const root = document.documentElement;
+    const previous = root.style.overflow;
+    root.style.overflow = menuOpen ? "hidden" : previous;
+    document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
+      root.style.overflow = previous;
       document.body.style.overflow = "";
     };
-  }, [introDone, menuOpen]);
+  }, [menuOpen]);
 
   return (
     <>
-      <AnimatePresence>
-        {!introDone && <IntroOverlay onDone={() => setIntroDone(true)} />}
-      </AnimatePresence>
-
-      <Header
-        reveal={introDone}
-        menuOpen={menuOpen}
-        onMenuChange={setMenuOpen}
-      />
+      <Header menuOpen={menuOpen} onMenuChange={setMenuOpen} />
 
       <main>
-        <Hero reveal={introDone} />
+        <Hero />
+        <Marquee />
         <Portfolio />
-        <Philosophy />
+        <Collections />
+        <About />
         <Contact />
       </main>
 

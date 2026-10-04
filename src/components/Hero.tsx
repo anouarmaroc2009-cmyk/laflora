@@ -1,141 +1,119 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { container, item, EASE } from "@/lib/motion";
+import { motion } from "framer-motion";
+import { WhatsAppIcon, ArrowDown } from "./icons";
 import { SITE } from "@/lib/site";
-import { WhatsAppIcon } from "./icons";
+import { EASE } from "@/lib/motion";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?auto=format&fit=crop&w=1600&q=80";
+  "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=2200&q=85";
 
-export default function Hero({ reveal }: { reveal: boolean }) {
+const rise = (delay: number) => ({
+  initial: { opacity: 0, y: 34 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 1.1, delay, ease: EASE },
+});
+
+export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pb-24 pt-36 lg:pb-36 lg:pt-48"
+      className="relative isolate flex min-h-[100svh] items-end overflow-hidden pt-32 pb-16 sm:pb-20"
     >
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-12">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
-          <div className="flex flex-col justify-center lg:col-span-6">
-            <motion.div
-              variants={container}
-              initial="hidden"
-              animate={reveal ? "visible" : "hidden"}
-            >
-              <motion.p
-                variants={item}
-                className="flex items-center gap-4 text-[11px] uppercase tracking-[0.35em] text-ink/60"
-              >
-                <span className="block h-px w-10 bg-rose" aria-hidden="true" />
-                Atelier floral de luxe · Rabat
-              </motion.p>
-
-              <motion.h1
-                variants={item}
-                className="mt-8 font-display text-[clamp(2.6rem,5.6vw,4.6rem)] font-normal leading-[1.04] text-ink"
-              >
-                Le design floral de vos moments{" "}
-                <em className="italic text-rose">inoubliables.</em>
-              </motion.h1>
-
-              <motion.p
-                variants={item}
-                className="mt-8 max-w-md text-base leading-relaxed text-ink/70"
-              >
-                Fleuriste de luxe à Rabat, LaFloraDelPatron imagine la
-                décoration florale de vos mariages et de vos événements —
-                bouquets sur mesure, sculptures et installations pensées fleur
-                à fleur.
-              </motion.p>
-
-              <motion.div
-                variants={item}
-                className="mt-10 flex flex-wrap items-center gap-4"
-              >
-                <a
-                  href="#portfolio"
-                  className="rounded-full bg-ink px-7 py-3.5 text-[11px] uppercase tracking-[0.2em] text-canvas transition-colors duration-300 hover:bg-rose-deep"
-                >
-                  Voir le portfolio
-                </a>
-                <a
-                  href={SITE.whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-ink/20 px-7 py-3.5 text-[11px] uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:border-ink"
-                >
-                  <WhatsAppIcon className="h-3.5 w-3.5" />
-                  Parler à l&apos;atelier
-                </a>
-              </motion.div>
-
-              <motion.p
-                variants={item}
-                className="mt-9 text-[11px] uppercase tracking-[0.25em] text-ink/45"
-              >
-                Sur rendez-vous · Rabat &amp; environs
-              </motion.p>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="lg:col-span-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: reveal ? 1 : 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: EASE }}
-          >
-            <div className="relative">
-              <div
-                className="absolute -right-4 -top-4 hidden h-full w-full border border-rose/30 sm:block"
-                aria-hidden="true"
-              />
-              <div className="relative aspect-[4/5] overflow-hidden bg-linen">
-                <Image
-                  src={HERO_IMAGE}
-                  alt="Bouquet de mariée aux roses poudrées, créé par LaFloraDelPatron, fleuriste de luxe à Rabat"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 left-6 border border-ink/10 bg-canvas/95 px-6 py-4">
-                <p className="font-display text-xl italic leading-none text-ink">
-                  La Reine Marie
-                </p>
-                <p className="mt-2 text-[10px] uppercase tracking-[0.25em] text-ink/50">
-                  Bouquet de mariée · 2025
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: reveal ? 1 : 0 }}
-        transition={{ delay: 1.6, duration: 1 }}
-        aria-hidden="true"
-      >
-        <span className="text-[10px] uppercase tracking-[0.35em] text-ink/45">
-          Défiler
-        </span>
-        <div className="relative h-14 w-px overflow-hidden bg-ink/15">
-          <motion.span
-            className="absolute left-0 top-0 h-4 w-px bg-rose"
-            animate={{ y: [-18, 60] }}
-            transition={{
-              duration: 1.9,
-              repeat: Infinity,
-              ease: "easeInOut",
-              repeatDelay: 0.5,
-            }}
+      {/* Backdrop */}
+      <div className="absolute inset-0 -z-20">
+        <div className="plate drift h-full w-full">
+          <Image
+            src={HERO_IMAGE}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
         </div>
-      </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/72 to-void/45" />
+        <div className="absolute inset-0 bg-[radial-gradient(120%_85%_at_50%_10%,transparent_28%,rgba(8,8,8,0.92)_100%)]" />
+      </div>
+
+      {/* Mauve bloom */}
+      <div
+        className="bloom -z-10 left-[-8%] top-[18%] h-[520px] w-[520px] opacity-70"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto w-full max-w-[1440px] px-6 lg:px-12">
+        <motion.div {...rise(0.15)}>
+          <p className="eyebrow">{SITE.tagline}</p>
+        </motion.div>
+
+        <h1 className="mt-8 max-w-[16ch] font-display text-[clamp(3.1rem,10.5vw,9.5rem)] font-light leading-[0.92] tracking-[-0.02em] text-chalk">
+          <motion.span
+            className="block"
+            {...rise(0.28)}
+          >
+            L&apos;Art Floral
+          </motion.span>
+          <motion.span
+            className="block italic text-mauve-bright"
+            {...rise(0.42)}
+          >
+            Réinventé
+          </motion.span>
+        </h1>
+
+        <motion.p
+          className="mt-9 max-w-xl text-[15px] font-light leading-relaxed text-ash sm:text-base"
+          {...rise(0.58)}
+        >
+          Atelier de fleuristerie, décoration et paysage à Hay Riad. Nous
+          composons pour les mariages, les événements VIP et les résidences qui
+          méritent mieux qu&apos;un bouquet de catalogue.
+        </motion.p>
+
+        <motion.div
+          className="mt-12 flex flex-col items-start gap-5 sm:flex-row sm:items-center"
+          {...rise(0.72)}
+        >
+          <a
+            href={SITE.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-mauve group inline-flex items-center gap-3 rounded-full bg-mauve px-8 py-4 text-[10px] uppercase tracking-[0.24em] text-void"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
+            Commander sur WhatsApp
+          </a>
+
+          <a
+            href="#portfolio"
+            className="ul inline-flex items-center gap-2.5 text-[10px] uppercase tracking-[0.24em] text-chalk"
+          >
+            Voir le portfolio
+            <ArrowDown className="h-3.5 w-3.5 text-mauve" />
+          </a>
+        </motion.div>
+
+        <motion.dl
+          className="mt-16 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-7 border-t border-line pt-9 sm:grid-cols-3"
+          {...rise(0.88)}
+        >
+          {[
+            { k: "Atelier", v: SITE.city },
+            { k: "Téléphone", v: SITE.phoneDisplay },
+            { k: "Horaires", v: SITE.hours },
+          ].map((stat) => (
+            <div key={stat.k}>
+              <dt className="text-[9px] uppercase tracking-[0.3em] text-ash-dim">
+                {stat.k}
+              </dt>
+              <dd className="mt-2.5 font-display text-lg font-light text-chalk">
+                {stat.v}
+              </dd>
+            </div>
+          ))}
+        </motion.dl>
+      </div>
     </section>
   );
 }

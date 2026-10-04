@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
-import { floristJsonLd } from "@/lib/schema";
+import { floristJsonLd, websiteJsonLd } from "@/lib/schema";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -14,33 +14,36 @@ const cormorant = Cormorant_Garamond({
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600"],
+  weight: ["200", "300", "400", "500"],
+  style: ["normal", "italic"],
   variable: "--font-jakarta",
   display: "swap",
 });
 
-const title = "LaFloraDelPatron | Fleuriste de Luxe · Mariage Rabat";
-const ogTitle = "LaFloraDelPatron — Fleuriste de Luxe à Rabat";
+const title = `${SITE.legalName} | Fleuriste • Décorateur • Paysagiste — Hay Riad, Rabat`;
+const ogTitle = `${SITE.legalName} — ${SITE.signature}`;
 
 export function generateMetadata(): Metadata {
   return {
     metadataBase: new URL(SITE.domain),
     title,
     description: SITE.description,
+    applicationName: SITE.name,
     keywords: [
       "fleuriste Rabat",
-      "fleuriste de luxe",
-      "décoration florale mariage",
-      "design floral",
-      "bouquets sur mesure",
-      "sculpture florale",
-      "livraison de fleurs Rabat",
+      "fleuriste de luxe Rabat",
+      "fleuriste Hay Riad",
+      "bouquet personnalisé",
+      "boîte à fleurs Rabat",
+      "coffret cadeau fleurs",
+      "aménagement paysager Rabat",
+      "décoration florale mariage Rabat",
       "fleuriste mariage Rabat",
-      "décoration mariage Rabat",
+      "paysagiste Rabat",
     ],
-    alternates: {
-      canonical: "/",
-    },
+    authors: [{ name: SITE.legalName }],
+    creator: SITE.legalName,
+    alternates: { canonical: "/" },
     robots: {
       index: true,
       follow: true,
@@ -54,10 +57,9 @@ export function generateMetadata(): Metadata {
     },
     openGraph: {
       type: "website",
-      locale: "fr_FR",
-      alternateLocale: "en_US",
+      locale: "fr_MA",
       url: SITE.domain,
-      siteName: SITE.name,
+      siteName: SITE.legalName,
       title: ogTitle,
       description: SITE.description,
       images: [
@@ -78,7 +80,7 @@ export function generateMetadata(): Metadata {
     category: "flowers",
     other: {
       "geo.region": "MA-RAZ",
-      "geo.placename": "Rabat",
+      "geo.placename": "Hay Riad, Rabat",
       "geo.position": "34.0209;-6.8416",
       ICBM: "34.0209, -6.8416",
     },
@@ -88,16 +90,22 @@ export function generateMetadata(): Metadata {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = [floristJsonLd, websiteJsonLd];
+
   return (
     <html lang="fr" className={`${cormorant.variable} ${jakarta.variable}`}>
-      <body className="bg-canvas text-ink antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(floristJsonLd).replace(/</g, "\\u003c"),
-          }}
-        />
+      <body className="bg-void text-chalk antialiased">
+        {jsonLd.map((node, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(node).replace(/</g, "\\u003c"),
+            }}
+          />
+        ))}
         <div className="grain" aria-hidden="true" />
+        <div className="vignette" aria-hidden="true" />
         {children}
       </body>
     </html>
