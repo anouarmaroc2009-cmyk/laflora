@@ -10,6 +10,19 @@ const payload = {
   // walking into `provider`. Also what geo-checklist.dev's ai_discovery check
   // looks for.
   name: SITE.name,
+  // Flat, top-level list of what an agent can actually accomplish here, so a
+  // consumer can decide relevance without inferring it from `services`.
+  capabilities: [
+    "browse-floral-services",
+    "list-service-offerings",
+    "view-portfolio-projects",
+    "answer-faq",
+    "check-opening-hours",
+    "check-delivery-service-area",
+    "request-custom-quote",
+    "contact-via-whatsapp",
+    "contact-via-phone",
+  ],
   provider: {
     name: SITE.name,
     url: SITE.domain,
@@ -33,9 +46,11 @@ const payload = {
   },
   related: {
     llmsTxt: `${SITE.domain}/llms.txt`,
+    llmsFullTxt: `${SITE.domain}/llms-full.txt`,
     aiTxt: `${SITE.domain}/.well-known/ai.txt`,
     summary: `${SITE.domain}/ai/summary.json`,
     faq: `${SITE.domain}/ai/faq.json`,
+    feed: `${SITE.domain}/feed.xml`,
   },
   faqCount: FAQS.length,
 };

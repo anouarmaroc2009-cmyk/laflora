@@ -17,6 +17,21 @@ export default function robots(): MetadataRoute.Robots {
        */
       {
         userAgent: [
+          /*
+           * The three real indexers. These already inherit `Allow: /` from the
+           * wildcard above, so listing them is not about access - it is about
+           * intent being stated at the exact token an indexer matches on, rather
+           * than inherited implicitly.
+           */
+          "Googlebot",
+          "Bingbot",
+          "Applebot",
+          /*
+           * Retrieval/citation crawlers. There is no Allow/Disallow distinction
+           * for citation in robots.txt - the meaningful signal is the
+           * machine-readable /llms.txt, /llms-full.txt and /ai/*.json payloads.
+           * This block says "answerable" before the agent reads a page.
+           */
           "GPTBot",
           "OAI-SearchBot",
           "ChatGPT-User",
@@ -39,6 +54,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${SITE.domain}/sitemap.xml`,
-    host: SITE.domain.replace(/^https?:\/\//, ""),
   };
 }
