@@ -30,7 +30,7 @@ export default function About() {
             <SectionHead
               eyebrow="La maison"
               title="Un atelier, pas un étal."
-              lede="LA FLORA DEL PATRON est un atelier de fleuristerie, de décoration et de paysage installé à Hay Riad, Rabat. Nous ne travaillons qu'en commande : chaque pièce est composée à la main, à partir de fleurs choisies le matin même chez nos grossistes."
+              lede="La Flora D’El Patron est un atelier de fleuristerie, de décoration et de paysage installé à Hay Riad, Rabat. Nous ne travaillons qu'en commande : chaque pièce est composée à la main, à partir de fleurs choisies le matin même chez nos grossistes."
             />
 
             <Reveal delay={0.24}>
@@ -76,7 +76,7 @@ export default function About() {
               <div className="plate h-full w-full">
                 <Image
                   src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80"
-                  alt="Table de réception fleurie et éclairée à la chandelle, installation florale de luxe par LaFloraDelPatron à Rabat"
+                  alt="Table de réception fleurie et éclairée à la chandelle, installation florale de luxe par La Flora D’El Patron à Rabat"
                   fill
                   sizes="(min-width: 1024px) 48vw, 92vw"
                   className="object-cover"

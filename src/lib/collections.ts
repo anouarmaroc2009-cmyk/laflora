@@ -24,7 +24,7 @@ export const COLLECTIONS: Collection[] = [
       "Une composition pensée pour une personne précise : sa morphologie, sa robe, la saison et l'heure de la cérémonie. Nous ne vendons pas des arrangements — nous composons.",
     details: ["Bouquet de mariée", "Composition d'anniversaire", "Bouquet d'entreprise"],
     image: img("photo-1519378058457-4c29a0a2efac"),
-    alt: "Bouquet personnalisé noué à la main, collection de bouquets de luxe LaFloraDelPatron",
+    alt: "Bouquet personnalisé noué à la main, collection de bouquets de luxe La Flora D’El Patron",
   },
   {
     id: "boite-nounours",
@@ -34,7 +34,7 @@ export const COLLECTIONS: Collection[] = [
       "La boîte à chapeau signature, et la sculpture portée en fleurs stabilisées. Deux objets floraux qui survivent à la cérémonie.",
     details: ["Boîte à chapeau", "Sculpture florale", "Fleurs stabilisées"],
     image: img("photo-1457089328109-e5d9bd499191"),
-    alt: "Boîte à fleurs signature et sculpture florale de luxe, collection LaFloraDelPatron à Rabat",
+    alt: "Boîte à fleurs signature et sculpture florale de luxe, collection La Flora D’El Patron à Rabat",
   },
   {
     id: "cadeaux-coffrets",
@@ -44,7 +44,7 @@ export const COLLECTIONS: Collection[] = [
       "Paniers d'hommage, coffrets d'entreprise numérotés, cadeaux de fin d'année et anniversaires. Une curation d'objets choisis, jamais empilés au hasard.",
     details: ["Coffret d'hommage", "Cadeau d'entreprise", "Coffret numéroté"],
     image: img("photo-1490750967868-88aa4486c946"),
-    alt: "Coffrets et cadeaux de luxe floraux, sélection de cadeaux LaFloraDelPatron",
+    alt: "Coffrets et cadeaux de luxe floraux, sélection de cadeaux La Flora D’El Patron",
   },
   {
     id: "plantes-paysage",
@@ -54,6 +54,6 @@ export const COLLECTIONS: Collection[] = [
       "Plantes d'intérieur d'exception en pot, et projets d'aménagement paysager pour villas, terrasses et patios. Étude, plan, plantation — puis entretien.",
     details: ["Plantes d'intérieur", "Terrasse & patio", "Plan d'aménagement"],
     image: img("photo-1441974231531-c6227db76b6e"),
-    alt: "Plantes d'intérieur et aménagement paysager pour villa de luxe, atelier LaFloraDelPatron",
+    alt: "Plantes d'intérieur et aménagement paysager pour villa de luxe, atelier La Flora D’El Patron",
   },
 ];

@@ -76,7 +76,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Pivoines Sarah Bernhardt", "Roses anciennes", "Astilbe"],
     image: img("photo-1519378058457-4c29a0a2efac"),
-    alt: "Bouquet de mariée personnalisé aux pivoines et roses anciennes par LaFloraDelPatron à Rabat",
+    alt: "Bouquet de mariée personnalisé aux pivoines et roses anciennes par La Flora D’El Patron à Rabat",
     aspect: "aspect-[4/5]",
   },
   {
@@ -130,7 +130,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Roses Avalanche", "Lisianthus", "Ruscus"],
     image: img("photo-1457089328109-e5d9bd499191"),
-    alt: "Boîte à fleurs signature de luxe remplie de roses et lisianthus, atelier floral LaFloraDelPatron",
+    alt: "Boîte à fleurs signature de luxe remplie de roses et lisianthus, atelier floral La Flora D’El Patron",
     aspect: "aspect-square",
   },
   {
@@ -148,7 +148,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Fleurs stabilisées", "Orchidées", "Cotons floraux"],
     image: img("photo-1522748906645-95d8adfd52c7"),
-    alt: "Sculpture florale en fleurs stabilisées, poupée florale de luxe par LaFloraDelPatron",
+    alt: "Sculpture florale en fleurs stabilisées, poupée florale de luxe par La Flora D’El Patron",
     aspect: "aspect-[3/4]",
   },
   {
@@ -166,7 +166,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Roses", "Ranunculus", "Feuillage de saison"],
     image: img("photo-1490750967868-88aa4486c946"),
-    alt: "Coffret cadeau de luxe avec fleurs, dorure et accessoires, coffret d'hommage LaFloraDelPatron",
+    alt: "Coffret cadeau de luxe avec fleurs, dorure et accessoires, coffret d'hommage La Flora D’El Patron",
     aspect: "aspect-[4/3]",
   },
   {
@@ -220,7 +220,7 @@ export const PROJECTS: Project[] = [
     ],
     varieties: ["Roses Avalanche", "Gypsophile", "Yucca", "Stéas"],
     image: img("photo-1469371670807-013ccf25f16a"),
-    alt: "Portique floral ivoire pour un mariage, décoration florale de luxe par LaFloraDelPatron à Rabat",
+    alt: "Portique floral ivoire pour un mariage, décoration florale de luxe par La Flora D’El Patron à Rabat",
     aspect: "aspect-[4/5]",
   },
 ];

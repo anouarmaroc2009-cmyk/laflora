@@ -89,7 +89,7 @@ export const floristJsonLd = {
   })),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Collections LaFloraDelPatron",
+    name: "Collections La Flora D’El Patron",
     itemListElement: COLLECTIONS.map((collection) => ({
       "@type": "Offer",
       itemOffered: {
