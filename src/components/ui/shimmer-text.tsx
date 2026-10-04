@@ -25,6 +25,7 @@ import { cn } from "@/lib/utils";
 export function ShimmerText({
   children,
   className,
+  style,
   duration = 3,
   delay = 0.5,
   ...props
@@ -38,15 +39,22 @@ export function ShimmerText({
 
   return (
     <span
+      {...props}
       className={cn("bg-clip-text text-transparent", className)}
       style={{
+        /*
+         * Caller styles first so `--shimmer-base` / `--shimmer-highlight`
+         * overrides survive; ours last so the paint mechanism can't be clobbered.
+         * Set --shimmer-base to the colour the text already had, and the resting
+         * appearance is unchanged - only the highlight sweeps.
+         */
+        ...style,
         backgroundImage:
           "linear-gradient(100deg, var(--shimmer-base, var(--color-ash)) 40%, var(--shimmer-highlight, var(--color-chalk)) 50%, var(--shimmer-base, var(--color-ash)) 60%)",
         backgroundSize: "220% 100%",
         WebkitBackgroundClip: "text",
         backgroundClip: "text",
       }}
-      {...props}
     >
       <motion.span
         initial={{ backgroundPositionX: "120%" }}

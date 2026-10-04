@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { WhatsAppIcon, ArrowDown } from "./icons";
 import { SITE } from "@/lib/site";
 import { EASE } from "@/lib/motion";
+import { ShimmerText } from "@/components/ui/shimmer-text";
 
 /*
  * Full-bleed backdrop. Two overlays sit on top of this — a bottom-to-top
@@ -87,7 +88,22 @@ export default function Hero() {
             className="btn-mauve group inline-flex items-center gap-3 rounded-full bg-mauve px-8 py-4 text-[10px] uppercase tracking-[0.24em] text-void"
           >
             <WhatsAppIcon className="h-4 w-4" />
-            Commander sur WhatsApp
+            {/*
+              Base is text-void, the colour this label already had, so the
+              resting appearance is identical to before and only the rose glint
+              sweeps. A mauve->rose gradient here instead would put pale pink on
+              a mauve fill and collapse the contrast.
+            */}
+            <ShimmerText
+              style={
+                {
+                  "--shimmer-base": "var(--color-void)",
+                  "--shimmer-highlight": "#e9c2d6",
+                } as React.CSSProperties
+              }
+            >
+              Commander sur WhatsApp
+            </ShimmerText>
           </a>
 
           <a
@@ -96,7 +112,16 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="ul inline-flex items-center gap-2.5 text-[10px] uppercase tracking-[0.24em] text-chalk"
           >
-            Besoin d&apos;un fournisseur
+            <ShimmerText
+              style={
+                {
+                  "--shimmer-base": "var(--color-chalk)",
+                  "--shimmer-highlight": "#e9c2d6",
+                } as React.CSSProperties
+              }
+            >
+              Besoin d&apos;un fournisseur
+            </ShimmerText>
             <ArrowDown className="h-3.5 w-3.5 text-mauve" />
           </a>
 
@@ -104,7 +129,16 @@ export default function Hero() {
             href="#portfolio"
             className="ul inline-flex items-center gap-2.5 text-[10px] uppercase tracking-[0.24em] text-chalk"
           >
-            Voir le portfolio
+            <ShimmerText
+              style={
+                {
+                  "--shimmer-base": "var(--color-chalk)",
+                  "--shimmer-highlight": "#e9c2d6",
+                } as React.CSSProperties
+              }
+            >
+              Voir le portfolio
+            </ShimmerText>
             <ArrowDown className="h-3.5 w-3.5 text-mauve" />
           </a>
         </motion.div>

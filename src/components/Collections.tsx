@@ -6,6 +6,7 @@ import { WhatsAppIcon, ArrowUpRight } from "./icons";
 import { COLLECTIONS } from "@/lib/collections";
 import { CATEGORIES } from "@/lib/portfolio";
 import { SITE } from "@/lib/site";
+import { ShimmerText } from "@/components/ui/shimmer-text";
 
 export default function Collections() {
   return (
@@ -104,7 +105,17 @@ export default function Collections() {
               className="btn-mauve mt-2 inline-flex items-center gap-3 rounded-full bg-mauve px-8 py-4 text-[10px] uppercase tracking-[0.24em] text-void"
             >
               <WhatsAppIcon className="h-4 w-4" />
-              Commander sur WhatsApp
+              {/* Same inverted treatment as the hero CTA: base stays text-void. */}
+              <ShimmerText
+                style={
+                  {
+                    "--shimmer-base": "var(--color-void)",
+                    "--shimmer-highlight": "#e9c2d6",
+                  } as React.CSSProperties
+                }
+              >
+                Commander sur WhatsApp
+              </ShimmerText>
             </a>
           </div>
         </Reveal>
