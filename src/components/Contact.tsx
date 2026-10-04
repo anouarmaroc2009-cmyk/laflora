@@ -122,11 +122,23 @@ export default function Contact() {
 
           <Reveal delay={0.12}>
             <div className="space-y-5">
-              <p className="eyebrow">Informations</p>
-              <p className="flex items-center gap-3 text-sm font-light text-ash">
+              <p className="eyebrow flex items-center gap-3">
                 <ClockIcon className="h-4 w-4 shrink-0 text-mauve" />
-                {SITE.hours}
+                Informations
               </p>
+              <dl className="space-y-3">
+                {SITE.hours.map((row) => (
+                  <div
+                    key={row.days}
+                    className="flex items-baseline justify-between gap-4 border-b border-line/60 pb-3"
+                  >
+                    <dt className="text-sm font-light text-ash">{row.days}</dt>
+                    <dd className="whitespace-nowrap font-display text-base font-light text-chalk">
+                      {row.time}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
               <p className="text-sm font-light leading-relaxed text-ash-dim">
                 Visites sur rendez-vous uniquement. Mariages et événements&nbsp;:
                 devis à partir de trois semaines avant la date.

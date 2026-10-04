@@ -96,14 +96,26 @@
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": [
+              "Monday",
               "Tuesday",
               "Wednesday",
               "Thursday",
-              "Friday",
-              "Saturday"
+              "Friday"
             ],
-            "opens": "09:00",
-            "closes": "19:00"
+            "opens": "09:15",
+            "closes": "20:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday"],
+            "opens": "09:08",
+            "closes": "20:35"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Sunday"],
+            "opens": "09:08",
+            "closes": "20:30"
           }
         ],
         "areaServed": [
@@ -1337,32 +1349,7 @@
       .collection-buy {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 1.5rem;
-      }
-
-      @media (min-width: 768px) {
-        .collection-buy {
-          flex-direction: column;
-          align-items: flex-end;
-          gap: 1rem;
-        }
-      }
-
-      .price-label {
-        white-space: nowrap;
-        font-size: 10px;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--ash-dim);
-      }
-
-      .price-value {
-        margin-left: 0.5rem;
-        font-family: var(--font-display);
-        font-size: 1.125rem;
-        letter-spacing: normal;
-        color: var(--chalk);
+        justify-content: flex-end;
       }
 
       .round-btn {
@@ -1702,6 +1689,35 @@
         color: var(--mauve);
       }
 
+      .schedule {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .schedule-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .schedule-row dt {
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--ash);
+      }
+
+      .schedule-row dd {
+        white-space: nowrap;
+        font-family: var(--font-display);
+        font-size: 1.0625rem;
+        font-weight: 300;
+        color: var(--chalk);
+      }
+
       /* ============================================================
          Footer
          ============================================================ */
@@ -1997,8 +2013,8 @@
               <dd>06 82 72 50 55</dd>
             </div>
             <div>
-              <dt>Horaires</dt>
-              <dd>Mardi – Samedi · 9h00 – 19h00</dd>
+              <dt>Ouverture</dt>
+              <dd>7 jours sur 7</dd>
             </div>
           </dl>
         </div>
@@ -2358,7 +2374,8 @@
             <h2 class="h2 reveal" style="--reveal-delay: 0.08s">Quatre manières de faire fleurir.</h2>
             <p class="lede reveal" style="--reveal-delay: 0.16s">
               Nos collections signature, pensées pour être commandées telles quelles ou entièrement
-              redessinées pour vous. Prix indicatifs — devis définitif sur WhatsApp.
+              redessinées pour vous. Chaque commande est chiffrée sur WhatsApp, selon la saison et le
+              volume de fleurs.
             </p>
           </div>
 
@@ -2393,7 +2410,6 @@
                   </ul>
                 </div>
                 <div class="collection-buy">
-                  <p class="price-label">À partir de<span class="price-value">450 MAD</span></p>
                   <a
                     href="https://wa.me/212682725055?text=Bonjour%20LaFloraDelPatron%2C%20je%20souhaite%20commander%20une%20composition%20florale."
                     target="_blank"
@@ -2436,7 +2452,6 @@
                   </ul>
                 </div>
                 <div class="collection-buy">
-                  <p class="price-label">À partir de<span class="price-value">600 MAD</span></p>
                   <a
                     href="https://wa.me/212682725055?text=Bonjour%20LaFloraDelPatron%2C%20je%20souhaite%20commander%20une%20composition%20florale."
                     target="_blank"
@@ -2479,7 +2494,6 @@
                   </ul>
                 </div>
                 <div class="collection-buy">
-                  <p class="price-label">À partir de<span class="price-value">350 MAD</span></p>
                   <a
                     href="https://wa.me/212682725055?text=Bonjour%20LaFloraDelPatron%2C%20je%20souhaite%20commander%20une%20composition%20florale."
                     target="_blank"
@@ -2522,7 +2536,6 @@
                   </ul>
                 </div>
                 <div class="collection-buy">
-                  <p class="price-label">À partir de<span class="price-value">Sur devis</span></p>
                   <a
                     href="https://wa.me/212682725055?text=Bonjour%20LaFloraDelPatron%2C%20je%20souhaite%20commander%20une%20composition%20florale."
                     target="_blank"
@@ -2735,13 +2748,20 @@
 
             <div class="info-stack reveal" style="--reveal-delay: 0.12s">
               <p class="eyebrow">Informations</p>
-              <p class="info-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" />
-                </svg>
-                Mardi – Samedi · 9h00 – 19h00
-              </p>
+              <dl class="schedule">
+                <div class="schedule-row">
+                  <dt>Lundi – Vendredi</dt>
+                  <dd>9h15 – 20h30</dd>
+                </div>
+                <div class="schedule-row">
+                  <dt>Samedi</dt>
+                  <dd>9h08 – 20h35</dd>
+                </div>
+                <div class="schedule-row">
+                  <dt>Dimanche</dt>
+                  <dd>9h08 – 20h30</dd>
+                </div>
+              </dl>
               <p style="font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--ash-dim)">
                 Visites sur rendez-vous uniquement. Mariages et événements&nbsp;: devis à partir de
                 trois semaines avant la date.

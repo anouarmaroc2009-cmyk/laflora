@@ -101,7 +101,7 @@ export default function Hero() {
           {[
             { k: "Atelier", v: SITE.city },
             { k: "Téléphone", v: SITE.phoneDisplay },
-            { k: "Horaires", v: SITE.hours },
+            { k: "Ouverture", v: "7 jours sur 7" },
           ].map((stat) => (
             <div key={stat.k}>
               <dt className="text-[9px] uppercase tracking-[0.3em] text-ash-dim">

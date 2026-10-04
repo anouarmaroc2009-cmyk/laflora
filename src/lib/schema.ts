@@ -34,14 +34,26 @@ export const floristJsonLd = {
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
+        "Monday",
         "Tuesday",
         "Wednesday",
         "Thursday",
         "Friday",
-        "Saturday",
       ],
-      opens: "09:00",
-      closes: "19:00",
+      opens: "09:15",
+      closes: "20:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday"],
+      opens: "09:08",
+      closes: "20:35",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Sunday"],
+      opens: "09:08",
+      closes: "20:30",
     },
   ],
   areaServed: [

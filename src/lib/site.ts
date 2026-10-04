@@ -13,7 +13,11 @@ export const SITE = {
     "https://wa.me/212682725055?text=Bonjour%20LaFloraDelPatron%2C%20je%20souhaite%20commander%20une%20composition%20florale.",
   mapsUrl: "https://maps.app.goo.gl/thqqJJwLwgoBFQyq7",
   instagramUrl: "https://www.instagram.com/laflora.delpatron",
-  hours: "Mardi – Samedi · 9h00 – 19h00",
+  hours: [
+    { days: "Lundi – Vendredi", time: "9h15 – 20h30" },
+    { days: "Samedi", time: "9h08 – 20h35" },
+    { days: "Dimanche", time: "9h08 – 20h30" },
+  ] as const,
   description:
     "LA FLORA DEL PATRON — Fleuriste, décorateur et paysagiste à Hay Riad, Rabat. Bouquets personnalisés sur mesure, boîtes et nounours de fleurs, cadeaux & coffrets de luxe, plantes et aménagement paysager. Mariages, événements VIP et résidences de prestige. 06 82 72 50 55.",
   ogImage:

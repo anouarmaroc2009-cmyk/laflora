@@ -22,7 +22,7 @@ export default function Collections() {
         <SectionHead
           eyebrow="Collections"
           title="Quatre manières de faire fleurir."
-          lede="Nos collections signature, pensées pour être commandées telles quelles ou entièrement redessinées pour vous. Prix indicatifs — devis définitif sur WhatsApp."
+          lede="Nos collections signature, pensées pour être commandées telles quelles ou entièrement redessinées pour vous. Chaque commande est chiffrée sur WhatsApp, selon la saison et le volume de fleurs."
         />
 
         <div className="mt-16 space-y-px">
@@ -36,7 +36,7 @@ export default function Collections() {
 
             return (
               <Reveal key={collection.id} delay={i * 0.06}>
-                <article className="group grid gap-7 border-t border-line py-10 transition-colors duration-500 hover:bg-white/[0.015] md:grid-cols-[auto_minmax(0,1fr)_minmax(0,0.95fr)_auto] md:items-center md:gap-10 md:px-4">
+                <article className="group grid gap-7 border-t border-line py-10 transition-colors duration-500 hover:bg-white/[0.015] md:grid-cols-[auto_minmax(0,1fr)_minmax(0,1.35fr)_auto] md:items-center md:gap-10 md:px-4">
                   <div className="plate h-24 w-24 shrink-0 md:h-28 md:w-28">
                     <Image
                       src={collection.image}
@@ -72,13 +72,7 @@ export default function Collections() {
                     </ul>
                   </div>
 
-                  <div className="flex items-center justify-between gap-6 md:flex-col md:items-end md:gap-4">
-                    <p className="whitespace-nowrap text-[10px] uppercase tracking-[0.22em] text-ash-dim">
-                      À partir de
-                      <span className="ml-2 font-display text-lg tracking-normal text-chalk">
-                        {collection.from}
-                      </span>
-                    </p>
+                  <div className="flex items-center justify-end gap-6">
                     <a
                       href={SITE.whatsappHref}
                       target="_blank"
