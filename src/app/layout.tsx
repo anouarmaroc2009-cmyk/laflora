@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
@@ -20,8 +21,8 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const title = `${SITE.legalName} | Fleuriste • Décorateur • Paysagiste — Hay Riad, Rabat`;
-const ogTitle = `${SITE.legalName} — ${SITE.signature}`;
+const title = `${SITE.legalName} | Fleuriste • Décorateur • Paysagiste | Hay Riad, Rabat`;
+const ogTitle = `${SITE.legalName} | ${SITE.signature}`;
 
 export function generateMetadata(): Metadata {
   return {
@@ -112,6 +113,12 @@ export default function RootLayout({
         <div className="grain" aria-hidden="true" />
         <div className="vignette" aria-hidden="true" />
         {children}
+        {/*
+          Cookie-free, so no consent banner is required. Page views + Web Vitals
+          here; the WhatsApp clicks that actually represent a conversion are
+          fired from src/lib/analytics.ts.
+        */}
+        <Analytics />
       </body>
     </html>
   );

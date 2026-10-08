@@ -18,7 +18,7 @@ export const FAQS: Faq[] = [
   {
     question: "Où se trouve La Flora D’El Patron ?",
     answer:
-      "L’atelier est situé à Hay Riad, Rabat, au Maroc. L’adresse exacte et l’itinéraire sont communiqués sur demande via WhatsApp ou au téléphone.",
+      "L’atelier se trouve à Prestigia Hay Riad, près du Marjane Market, Avenue Abderrahim Bouabid, à Rabat. Vous pouvez passer à l’atelier pendant nos horaires d’ouverture, ou appeler le 06 82 72 50 55 pour convenir d’un rendez-vous.",
   },
   {
     question: "Quels sont vos horaires d’ouverture ?",
@@ -28,7 +28,7 @@ export const FAQS: Faq[] = [
   {
     question: "Quels services proposez-vous ?",
     answer:
-      "L’atelier réunit trois métiers : fleuriste (bouquets personnalisés sur mesure, boîtes et nounours de fleurs, coffrets et cadeaux de luxe), décorateur (décoration florale de mariage et installations événementielles) et paysagiste (plantes d’intérieur et aménagement de terrasses, patios et jardins de villas).",
+      "L’atelier réunit trois métiers : fleuriste (bouquets sur mesure, boîtes et nounours de fleurs, coffrets cadeaux), décorateur (décoration florale de mariage et installations événementielles) et paysagiste (plantes d’intérieur, terrasses, patios et jardins de villas).",
   },
   {
     question: "Comment passer commande ?",
@@ -43,27 +43,27 @@ export const FAQS: Faq[] = [
   {
     question: "Faites-vous des bouquets de mariée et des décorations de mariage ?",
     answer:
-      "Oui. Les compositions de mariée sont dessinées pour une personne précise : sa morphologie, sa robe, la saison et l’heure de la cérémonie. L’atelier réalise également portiques, cascades et scénographies pour mariages, hôtels, riads et villas privées.",
+      "Oui. Chaque bouquet de mariée est dessiné pour la personne qui le porte : on tient compte de sa morphologie, de sa robe, de la saison et de l’heure de la cérémonie. L’atelier réalise aussi les portiques, cascades et scénographies, pour des mariages comme pour des hôtels, riads et villas privées.",
   },
   {
     question: "Travaillez-vous pour les entreprises ?",
     answer:
-      "Oui. Les coffrets d’entreprise numérotés sont livrés sur un créneau commun : la cohérence sur plusieurs centaines d’unités fait partie de la proposition.",
+      "Oui. Les coffrets d’entreprise numérotés sont livrés sur un même créneau, ce qui garde la cohérence sur plusieurs centaines d’unités.",
   },
   {
     question: "Quelles zones livrez-vous ?",
     answer:
-      "L’atelier intervient sur Rabat et sa région, ainsi que sur Salé, Témara, Skhirat et Kénitra. Pour un lieu plus éloigné, contactez-nous pour étudier la faisabilité.",
+      "L’atelier intervient sur Rabat et sa région : Salé, Témara, Skhirat et Kénitra. Pour un lieu plus éloigné, contactez-nous : nous étudions la faisabilité.",
   },
   {
     question: "Proposez-vous des fleurs qui ne se fanent pas ?",
     answer:
-      "Oui. La sculpture portée en fleurs stabilisées conserve son aspect d’origine bien après la cérémonie : c’est l’alternative prévue lorsque l’on souhaite un objet floral durable plutôt qu’un bouquet jetable.",
+      "Oui. La sculpture portée en fleurs stabilisées garde son aspect d’origine bien après la cérémonie. C’est l’option pour qui veut un objet floral durable plutôt qu’un bouquet jetable.",
   },
   {
     question: "Comment voir vos réalisations ?",
     answer:
-      "Le portfolio de l’atelier présente des compositions par catégorie — bouquets, boîtes et nounours, cadeaux et coffrets, plantes et paysage. Les créations les plus récentes sont partagées sur Instagram.",
+      "Le portfolio présente les compositions par catégorie : bouquets, boîtes et nounours, cadeaux et coffrets, plantes et paysage. Les créations les plus récentes sont publiées sur Instagram.",
   },
 ];
 

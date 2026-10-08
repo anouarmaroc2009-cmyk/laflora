@@ -1,5 +1,8 @@
+"use client";
+
 import { WhatsAppIcon, InstagramIcon, PhoneIcon } from "./icons";
 import { SITE, NAV_LINKS } from "@/lib/site";
+import { trackWhatsApp } from "@/lib/analytics";
 
 const SOCIALS = [
   { label: "Instagram", href: SITE.instagramUrl, Icon: InstagramIcon },
@@ -22,9 +25,8 @@ export default function Footer() {
               {SITE.tagline}
             </p>
             <p className="mt-7 max-w-sm text-sm font-light leading-relaxed text-ash">
-              Atelier de composition florale, de décoration et de paysage à
-              Hay Riad, Rabat. Mariages, événements privés et résidences de
-              prestige.
+              Atelier de fleuristerie, de décoration et de paysage, à
+              Hay Riad. Mariages, réceptions privées et résidences.
             </p>
           </div>
 
@@ -58,6 +60,11 @@ export default function Footer() {
                     {...(social.label === "Téléphone"
                       ? {}
                       : { target: "_blank", rel: "noopener noreferrer" })}
+                    onClick={
+                      social.label === "WhatsApp"
+                        ? () => trackWhatsApp("footer")
+                        : undefined
+                    }
                     className="ul inline-flex items-center gap-2.5 text-sm font-light text-ash transition-colors duration-300 hover:text-chalk"
                   >
                     <social.Icon className="h-3.5 w-3.5 text-mauve" />
@@ -81,12 +88,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-line pt-8 pb-24 lg:pb-0 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[11px] font-light text-ash-dim">
             © {year} {SITE.legalName}. Tous droits réservés.
           </p>
           <p className="text-[10px] uppercase tracking-[0.28em] text-ash-dim">
-            {SITE.city} — Maroc
+            {SITE.city}, Maroc
           </p>
         </div>
       </div>

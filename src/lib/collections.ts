@@ -1,7 +1,17 @@
+import type { CategoryId } from "./portfolio";
+
 export type Collection = {
   id: string;
   title: string;
-  category: string;
+  /*
+   * Was `string`, joined downstream on `Category.label` — but the stored values
+   * were short forms ("Bouquets") and the labels are long ("Les Bouquets
+   * Personnalisés"). All four comparisons failed, `category` resolved to
+   * undefined on every card, and the "01 —" index prefix silently never
+   * rendered. Keying on the stable `CategoryId` union instead makes the join
+   * exhaustive and the compiler catches any future mismatch.
+   */
+  category: CategoryId;
   description: string;
   details: string[];
   image: string;
@@ -23,9 +33,9 @@ export const COLLECTIONS: Collection[] = [
   {
     id: "bouquet-personnalise",
     title: "Le Bouquet Sur Mesure",
-    category: "Bouquets",
+    category: "bouquets",
     description:
-      "Une composition pensée pour une personne précise : sa morphologie, sa robe, la saison et l'heure de la cérémonie. Nous ne vendons pas des arrangements — nous composons.",
+      "Chaque bouquet est dessiné pour une personne précise : sa morphologie, sa robe, la saison, l'heure de la cérémonie.",
     details: ["Bouquet de mariée", "Composition d'anniversaire", "Bouquet d'entreprise"],
     image: img("c1-bouquet-personnalise.jpg"),
     alt: "Bouquet personnalisé noué à la main, collection de bouquets de luxe La Flora D’El Patron",
@@ -33,9 +43,9 @@ export const COLLECTIONS: Collection[] = [
   {
     id: "boite-nounours",
     title: "La Boîte & Le Nounours",
-    category: "Boîtes & Nounours",
+    category: "boites",
     description:
-      "La boîte à chapeau signature, et la sculpture portée en fleurs stabilisées. Deux objets floraux qui survivent à la cérémonie.",
+      "La boîte à chapeau signature et la sculpture portée en fleurs stabilisées. Deux objets que l'on garde après la journée.",
     details: ["Boîte à chapeau", "Sculpture florale", "Fleurs stabilisées"],
     image: img("c2-boite-nounours.jpg"),
     alt: "Boîte à fleurs signature et sculpture florale de luxe, collection La Flora D’El Patron à Rabat",
@@ -43,9 +53,9 @@ export const COLLECTIONS: Collection[] = [
   {
     id: "cadeaux-coffrets",
     title: "Coffrets & Cadeaux",
-    category: "Cadeaux",
+    category: "cadeaux",
     description:
-      "Paniers d'hommage, coffrets d'entreprise numérotés, cadeaux de fin d'année et anniversaires. Une curation d'objets choisis, jamais empilés au hasard.",
+      "Paniers d'hommage, coffrets d'entreprise numérotés, cadeaux de fin d'année et anniversaires. Chaque objet est choisi un par un.",
     details: ["Coffret d'hommage", "Cadeau d'entreprise", "Coffret numéroté"],
     image: img("c3-cadeaux-coffrets.jpg"),
     alt: "Coffrets et cadeaux de luxe floraux, sélection de cadeaux La Flora D’El Patron",
@@ -53,9 +63,9 @@ export const COLLECTIONS: Collection[] = [
   {
     id: "plantes-paysage",
     title: "Plantes & Paysage",
-    category: "Plantes & Aménagement",
+    category: "plantes",
     description:
-      "Plantes d'intérieur d'exception en pot, et projets d'aménagement paysager pour villas, terrasses et patios. Étude, plan, plantation — puis entretien.",
+      "Plantes d'intérieur en pot, choisies pour la pièce qui les accueille. L'aménagement couvre villas, terrasses et patios : étude, plan, plantation, puis entretien.",
     details: ["Plantes d'intérieur", "Terrasse & patio", "Plan d'aménagement"],
     image: img("c4-interieur-paysage.jpg"),
     alt: "Plantes d'intérieur et aménagement paysager pour villa de luxe, atelier La Flora D’El Patron",

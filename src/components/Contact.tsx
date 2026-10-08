@@ -9,6 +9,7 @@ import {
   ClockIcon,
 } from "./icons";
 import { SITE } from "@/lib/site";
+import { trackWhatsApp } from "@/lib/analytics";
 
 const CHANNELS = [
   {
@@ -75,6 +76,11 @@ export default function Contact() {
                 {...(channel.external
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
+                onClick={
+                  channel.label === "WhatsApp"
+                    ? () => trackWhatsApp("contact")
+                    : undefined
+                }
                 className="group flex h-full flex-col justify-between gap-10 bg-void p-8 transition-colors duration-500 hover:bg-obsidian"
               >
                 <div className="flex items-start justify-between">
@@ -112,10 +118,13 @@ export default function Contact() {
               <p className="mt-5 font-display text-3xl font-light leading-snug text-chalk sm:text-4xl">
                 {SITE.city}, Maroc
               </p>
-              <p className="mt-5 max-w-lg text-[15px] font-light leading-relaxed text-ash">
-                Nous livrons dans tout Rabat et ses environs — Hay Riad, Salé,
-                Témara, Skhirat. Au-delà, chaque commande est étudiée au cas par
-                cas selon la distance et la saison.
+              <p className="mt-4 max-w-md text-sm font-light leading-relaxed text-ash">
+                {SITE.address.street}, {SITE.address.streetExtra}
+              </p>
+              <p className="mt-6 max-w-lg text-[15px] font-light leading-relaxed text-ash">
+                Nous livrons dans tout Rabat et ses environs&nbsp;: Hay Riad,
+                Salé, Témara, Skhirat. Au-delà, chaque commande est étudiée au
+                cas par cas, selon la distance et la saison.
               </p>
             </div>
           </Reveal>

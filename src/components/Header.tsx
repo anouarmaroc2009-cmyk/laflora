@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { WhatsAppIcon } from "./icons";
 import { SITE, NAV_LINKS } from "@/lib/site";
+import { trackWhatsApp } from "@/lib/analytics";
 import { EASE } from "@/lib/motion";
 
 export default function Header({
@@ -80,6 +81,7 @@ export default function Header({
             href={SITE.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsApp("header")}
             className="btn-mauve hidden items-center gap-2.5 rounded-full bg-chalk px-6 py-3 text-[10px] uppercase tracking-[0.22em] text-void transition-colors duration-300 hover:text-void sm:inline-flex"
           >
             <WhatsAppIcon className="h-3.5 w-3.5" />
@@ -154,6 +156,7 @@ export default function Header({
                 href={SITE.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsApp("mobile_menu")}
                 className="btn-mauve inline-flex items-center justify-center gap-2.5 rounded-full bg-mauve px-6 py-4 text-[10px] uppercase tracking-[0.22em] text-void"
               >
                 <WhatsAppIcon className="h-4 w-4" />
@@ -166,7 +169,7 @@ export default function Header({
                 {SITE.phoneDisplay}
               </a>
               <p className="text-center text-[10px] uppercase tracking-[0.3em] text-ash-dim">
-                {SITE.city} — Maroc
+                {SITE.city}, Maroc
               </p>
             </motion.div>
           </motion.nav>

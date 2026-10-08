@@ -22,7 +22,6 @@ const payload = {
     "@type": "PostalAddress",
     addressLocality: "Rabat",
     addressRegion: "Rabat-Salé-Kénitra",
-    postalCode: "10100",
     addressCountry: "MA",
   },
   contactPoint: [
@@ -63,7 +62,18 @@ const payload = {
   },
   potentialAction: {
     "@type": "OrderAction",
-    target: `${SITE.domain}/contact`,
+    // Ordering happens over WhatsApp, not on the site. Pointing OrderAction at
+    // a generic /contact was the mismatch flagged in the audit: the contact
+    // section lists phone/email/WhatsApp but hosts no order form, so a crawler
+    // reading "target" had no page to act on.
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: SITE.whatsappHref,
+      actionPlatform: [
+        "https://schema.org/DesktopWebPlatform",
+        "https://schema.org/MobileWebPlatform",
+      ],
+    },
     deliveryMethod: "https://schema.org/PickupDelivery",
   },
   numberOfItems: COLLECTIONS.length,

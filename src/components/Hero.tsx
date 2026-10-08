@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { WhatsAppIcon, ArrowDown } from "./icons";
 import { SITE } from "@/lib/site";
+import { trackWhatsApp } from "@/lib/analytics";
 import { EASE } from "@/lib/motion";
 import { ShimmerText } from "@/components/ui/shimmer-text";
 
@@ -34,6 +35,15 @@ export default function Hero() {
             src={HERO_IMAGE}
             alt=""
             fill
+            /*
+             * This is the LCP element — the only full-bleed image above the fold
+             * and 178 KB at source. Without an explicit preload Next lazy-loads
+             * it, so the largest paint element on the page is discovered *after*
+             * the JS bundle parses. `preload` (not `priority`, deprecated in
+             * Next 16) emits the <link rel="preload"> and the high fetchpriority.
+             */
+            preload
+            fetchPriority="high"
             sizes="100vw"
             className="object-cover"
           />
@@ -73,8 +83,8 @@ export default function Hero() {
           {...rise(0.58)}
         >
           Atelier de fleuristerie, décoration et paysage à Hay Riad. Nous
-          composons pour les mariages, les événements VIP et les résidences qui
-          méritent mieux qu&apos;un bouquet de catalogue.
+          composons pour les mariages, les réceptions privées et les
+          résidences.
         </motion.p>
 
         <motion.div
@@ -85,6 +95,7 @@ export default function Hero() {
             href={SITE.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsApp("hero_primary")}
             className="btn-mauve group inline-flex items-center gap-3 rounded-full bg-mauve px-8 py-4 text-[10px] uppercase tracking-[0.24em] text-void"
           >
             <WhatsAppIcon className="h-4 w-4" />
@@ -110,6 +121,7 @@ export default function Hero() {
             href={SITE.whatsappFournisseurHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsApp("hero_supplier")}
             className="ul inline-flex items-center gap-2.5 text-[10px] uppercase tracking-[0.24em] text-chalk"
           >
             <ShimmerText

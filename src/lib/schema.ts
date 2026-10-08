@@ -1,6 +1,12 @@
 import { SITE } from "./site";
 import { COLLECTIONS } from "./collections";
 import { FAQS } from "./faqs";
+import { CATEGORIES } from "./portfolio";
+
+/* Collection.category is a CategoryId for join integrity; schema.org needs the
+ * human label, so resolve it here rather than emitting "bouquets". */
+const categoryLabel = (id: string) =>
+  CATEGORIES.find((c) => c.id === id)?.label ?? id;
 
 export const floristJsonLd = {
   "@context": "https://schema.org",
@@ -24,11 +30,10 @@ export const floristJsonLd = {
   dateModified: SITE.dateModified,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Hay Riad",
-    addressLocality: "Rabat",
-    addressRegion: "Rabat-Salé-Kénitra",
-    postalCode: "10100",
-    addressCountry: "MA",
+    streetAddress: `${SITE.address.street}, ${SITE.address.streetExtra}`,
+    addressLocality: SITE.address.locality,
+    addressRegion: SITE.address.region,
+    addressCountry: SITE.address.country,
   },
   geo: {
     "@type": "GeoCoordinates",
@@ -89,7 +94,7 @@ export const floristJsonLd = {
     itemOffered: {
       "@type": "Service",
       name: collection.title,
-      category: collection.category,
+      category: categoryLabel(collection.category),
     },
   })),
   hasOfferCatalog: {

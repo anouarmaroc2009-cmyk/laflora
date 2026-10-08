@@ -64,9 +64,8 @@ Last updated: ${SITE.dateModified}
 - **WhatsApp**: ${SITE.whatsappHref}
 - **Instagram**: ${SITE.instagramUrl}
 - **Maps**: ${SITE.mapsUrl}
-- **Location**: ${SITE.city}, ${CONTACT_POINT.area.country}
+- **Location**: ${SITE.addressOneLine}
 - **Coordinates**: ${CONTACT_POINT.geo.latitude}, ${CONTACT_POINT.geo.longitude}
-- **Exact address**: shared on request.
 
 ## Opening hours
 

@@ -7,6 +7,8 @@ import { Reveal, SectionHead } from "./Reveal";
 import { ArrowUpRight } from "./icons";
 import { CATEGORIES, PROJECTS, type CategoryId } from "@/lib/portfolio";
 import { EASE } from "@/lib/motion";
+import { orderProjectHref } from "@/lib/site";
+import { trackWhatsApp } from "@/lib/analytics";
 
 type Filter = "all" | CategoryId;
 
@@ -28,8 +30,8 @@ export default function Portfolio() {
       <div className="mx-auto max-w-[1440px] px-6 lg:px-12">
         <SectionHead
           eyebrow="Portfolio"
-          title="Des pièces composition, pas des assortiments."
-          lede="Chaque projet est une commande, jamais une répétition. Voici un aperçu de ce que nous avons monté pour nos clients — mariages, villas et événements privés."
+          title="Des pièces composées, pas des assortiments."
+          lede="Chaque projet est une commande, jamais une répétition. Quelques pièces montées pour des mariages, des villas et des événements privés."
         />
 
         {/* Filters */}
@@ -65,7 +67,7 @@ export default function Portfolio() {
               <motion.article
                 key={project.id}
                 layout
-                className="group"
+                className="group relative"
                 initial={{ opacity: 0, y: 26 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
@@ -91,7 +93,20 @@ export default function Portfolio() {
                 <div className="mt-6 flex items-start justify-between gap-5">
                   <div>
                     <h3 className="font-display text-2xl font-light leading-snug text-chalk">
-                      {project.title}
+                      <a
+                        href={orderProjectHref(
+                          project.title,
+                          project.occasion,
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() =>
+                          trackWhatsApp("portfolio_project", project.title)
+                        }
+                        className="transition-colors duration-500 hover:text-mauve-bright after:absolute after:inset-0 after:content-['']"
+                      >
+                        {project.title}
+                      </a>
                     </h3>
                     <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-mauve">
                       {project.occasion}

@@ -39,8 +39,8 @@ export default function About() {
                   Notre travail s&apos;adresse aux mariages, aux événements
                   privés et aux résidences de prestige de la capitale. Pour
                   chacun, nous commençons par une conversation&nbsp;: le lieu,
-                  l&apos;heure, la lumière, les personnes. La composition vient
-                  après — jamais l&apos;inverse.
+                  l&apos;heure, la lumière, les personnes. La composition
+                  vient ensuite.
                 </p>
                 <p className="font-display text-xl font-light italic leading-snug text-chalk">
                   « La couleur ne se choisit pas au catalogue. Elle se décide

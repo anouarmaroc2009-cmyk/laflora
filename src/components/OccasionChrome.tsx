@@ -2,17 +2,18 @@
 
 import { useEffect, useState } from "react";
 import Header from "./Header";
-import Hero from "./Hero";
-import Marquee from "./Marquee";
-import Portfolio from "./Portfolio";
-import Collections from "./Collections";
-import About from "./About";
-import Faq from "./Faq";
-import Contact from "./Contact";
-import Footer from "./Footer";
 import StickyCta from "./StickyCta";
 
-export default function PageSite() {
+/*
+ * Header + sticky CTA for the pre-rendered occasion routes. These pages are
+ * static, so the mobile menu needs its own client island rather than being
+ * threaded down from the homepage's PageSite state.
+ */
+export default function OccasionChrome({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -29,19 +30,7 @@ export default function PageSite() {
   return (
     <>
       <Header menuOpen={menuOpen} onMenuChange={setMenuOpen} />
-
-      <main>
-        <Hero />
-        <Marquee />
-        <Portfolio />
-        <Collections />
-        <About />
-        <Faq />
-        <Contact />
-      </main>
-
-      <Footer />
-
+      {children}
       <StickyCta menuOpen={menuOpen} />
     </>
   );
